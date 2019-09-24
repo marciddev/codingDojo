@@ -37,11 +37,20 @@
             height: 20px;
             position: absolute;
         }
+        div#score {
+            border: 1px solid white;
+            width: 30px;
+            height: 30px;
+            color: white;
+            padding:7px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="world"></div>
     <div id="pacman" style='top: 0px; left: 0px;'></div> 
+    <div id="score">0</div>
     <!-- plus 20 is increment -->
     <script>
         var world = [
@@ -59,8 +68,8 @@
         ];
 
         var pacman = {
-            x: 20,
-            y: 20
+            x: 0,
+            y: 0
         };
         displayPacman();
         function displayWorld() {
@@ -82,32 +91,28 @@
             document.getElementById('world').innerHTML = output;
         }
         function displayPacman() {
-            document.getElementById('pacman').style.top = pacman.y+'px';
-            document.getElementById('pacman').style.left = pacman.x+'px';
+            document.getElementById('pacman').style.top = pacman.y*20 + 'px';
+            document.getElementById('pacman').style.left = pacman.x*20 + 'px';
         }
         displayWorld();
         document.onkeydown = function(e) {
             console.log(e);
-            if(e.keyCode == 37) {//left
-                pacman.x -= 20;
-                displayPacman();
+            if(e.keyCode == 37 && world[pacman.y][pacman.x-1] !=2) {
+                pacman--;
+                displayPacman(); 
             }
             if(e.keyCode == 38) {
-                pacman.y -= 20;
+                pacman.y --;
                 displayPacman();
             }
             if(e.keyCode == 39) {
-                pacman.x += 20;
+                pacman.x ++;
                 displayPacman();
             }
-            if(e.keyCode == 40) {
-                pacman.y += 20;
+            if(e.keyCode == 40){
+                pacman.y ++;
                 displayPacman();
             }
-        }
-        if(world[pacman.y][pacman.x] == 1) {
-            world[pacman.y][pacman.x] == 0);
-            displayWorld();
         }
     </script>
 </body>
