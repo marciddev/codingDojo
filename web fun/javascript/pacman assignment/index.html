@@ -45,20 +45,26 @@
             padding:7px;
             text-align: center;
         }
+        div.cherry {
+            background-image: url('cherries.png');
+            background-size: 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     </style>
 </head>
 <body>
     <div id="world"></div>
-    <div id="pacman" style='top: 0px; left: 0px;'></div> 
+    <div id="pacman" style='top: 20px; left: 20px;'></div> 
     <div id="score">0</div>
     <!-- plus 20 is increment -->
     <script>
         var world = [
             [2,2,2,2,2,2,2,2,2,2,2,2,2],
-            [2,0,0,0,0,2,0,0,0,0,0,0,2],
-            [2,0,0,0,0,2,0,0,0,0,0,0,2],
+            [2,0,0,0,0,2,0,3,0,3,3,0,2],
+            [2,0,0,0,0,2,0,0,0,0,3,0,2],
             [2,0,1,0,2,2,0,0,0,0,0,0,2],
-            [2,0,1,0,2,0,0,0,0,0,0,0,2],
+            [2,0,1,0,2,3,3,0,0,0,0,0,2],
             [2,0,1,0,2,2,2,2,2,2,2,0,2],
             [2,0,1,1,0,0,0,0,0,0,2,0,2],
             [2,0,0,1,0,0,0,0,0,0,2,0,2],
@@ -68,10 +74,9 @@
         ];
 
         var pacman = {
-            x: 0,
-            y: 0
+            x: 1,
+            y: 1
         };
-        displayPacman();
         function displayWorld() {
             var output='';
             for(var i=0; i<world.length;i++) {
@@ -82,7 +87,9 @@
                     } else if(world[i][j] == 1) {
                         output += "<div class='coin'></div>";
                     } else if(world[i][j] == 0) {
-                        output += "<div class='empty'></div>"
+                        output += "<div class='empty'></div>";
+                    } else if(world[i][j] == 3) {
+                        output += "<div class='cherry'></div>";
                     }
                 }
                 output += "</div>";
@@ -95,25 +102,26 @@
             document.getElementById('pacman').style.left = pacman.x*20 + 'px';
         }
         displayWorld();
+        displayPacman();
         document.onkeydown = function(e) {
             console.log(e);
             if(e.keyCode == 37 && world[pacman.y][pacman.x-1] !=2) {
-                pacman--;
-                displayPacman(); 
+                pacman.x--;
             }
-            if(e.keyCode == 38) {
+            if(e.keyCode == 38 && world[pacman.y-1][pacman.x] !=2) {
                 pacman.y --;
-                displayPacman();
             }
-            if(e.keyCode == 39) {
+            if(e.keyCode == 39 && world[pacman.y][pacman.x+1] !=2) {
                 pacman.x ++;
-                displayPacman();
             }
-            if(e.keyCode == 40){
+            if(e.keyCode == 40 && world[pacman.y+1][pacman.x] !=2){
                 pacman.y ++;
-                displayPacman();
             }
+            world[pacman.y][pacman.x] = 0;
+            displayWorld();
+            displayPacman();
         }
+        //cant find pictures for the pacman looking in different directions.(if(e.keyCode == 37) { document.getElementById('pacman').style.background-image = 'linkToPacmanImageInDirection';})
     </script>
 </body>
 </html>
