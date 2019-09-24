@@ -8,12 +8,15 @@
     <style type="text/css">
         body{
             background-color: gray;
+            margin: 0px;
         }
         div.row div {
             width: 20px;
             height: 20px;
-            border: 1px solid black;
             display: inline-block;
+        }
+        div.row {
+            height: 20px;
         }
         div.brick{
             background-color: purple;
@@ -24,48 +27,87 @@
             background-position: center;
             background-repeat: no-repeat;
         }
-        div.pacman {
+        div#pacman {
             background-image: url('pacman.gif');
             background-size: 20px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            position: absolute;
         }
     </style>
 </head>
 <body>
     <div id="world"></div>
+    <div id="pacman" style='top: 0px; left: 0px;'></div> 
+    <!-- plus 20 is increment -->
     <script>
         var world = [
             [2,2,2,2,2,2,2,2,2,2,2,2,2],
-            [2,0,0,0,0,0,0,0,0,0,0,0,2],
-            [2,0,0,0,0,0,0,0,0,0,0,0,2],
-            [2,0,1,0,0,0,0,0,0,0,0,0,2],
-            [2,0,1,0,0,0,0,0,0,0,0,0,2],
-            [2,0,1,0,0,0,0,0,0,0,0,0,2],
-            [2,0,1,1,0,0,0,0,0,0,0,0,2],
-            [2,0,0,1,0,0,0,0,0,0,0,0,2],
-            [2,0,0,1,1,1,1,1,1,1,1,1,2],
+            [2,0,0,0,0,2,0,0,0,0,0,0,2],
+            [2,0,0,0,0,2,0,0,0,0,0,0,2],
+            [2,0,1,0,2,2,0,0,0,0,0,0,2],
+            [2,0,1,0,2,0,0,0,0,0,0,0,2],
+            [2,0,1,0,2,2,2,2,2,2,2,0,2],
+            [2,0,1,1,0,0,0,0,0,0,2,0,2],
+            [2,0,0,1,0,0,0,0,0,0,2,0,2],
+            [2,0,0,1,1,1,1,1,1,1,2,1,2],
             [2,0,0,0,0,0,0,0,0,0,0,0,2],
             [2,2,2,2,2,2,2,2,2,2,2,2,2]
         ];
+
+        var pacman = {
+            x: 20,
+            y: 20
+        };
+        displayPacman();
         function displayWorld() {
             var output='';
             for(var i=0; i<world.length;i++) {
-                output +="\n<div class='row'>";
+                output +="<div class='row'>";
                 for(var j=0;j<world[i].length;j++) {
                     if(world[i][j] == 2) {
-                        output += "\n\t<div class='brick'></div>";
+                        output += "<div class='brick'></div>";
                     } else if(world[i][j] == 1) {
-                        output += "\n\t<div class='coin'></div>";
+                        output += "<div class='coin'></div>";
                     } else if(world[i][j] == 0) {
-                        output += "\n\t<div class='empty'></div>"
+                        output += "<div class='empty'></div>"
                     }
                 }
                 output += "</div>";
             }
-            console.log(output);
+            // console.log(output);
             document.getElementById('world').innerHTML = output;
+        }
+        function displayPacman() {
+            document.getElementById('pacman').style.top = pacman.y+'px';
+            document.getElementById('pacman').style.left = pacman.x+'px';
+        }
+        displayWorld();
+        document.onkeydown = function(e) {
+            console.log(e);
+            if(e.keyCode == 37) {//left
+                pacman.x -= 20;
+                displayPacman();
+            }
+            if(e.keyCode == 38) {
+                pacman.y -= 20;
+                displayPacman();
+            }
+            if(e.keyCode == 39) {
+                pacman.x += 20;
+                displayPacman();
+            }
+            if(e.keyCode == 40) {
+                pacman.y += 20;
+                displayPacman();
+            }
+        }
+        if(world[pacman.y][pacman.x] == 1) {
+            world[pacman.y][pacman.x] == 0);
+            displayWorld();
         }
     </script>
 </body>
