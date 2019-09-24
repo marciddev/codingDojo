@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sigma(num) {
+            var sum=0;
+            if(num > -1) {
+                for(var i=0;i<=num;i++) {
+                    sum += i;
+                }
+            return sum;
+            }
+        }
+        function factorial(num) {
+            var result=0;
+            if(num > -1) {
+                for(var i=0;i<num;i++) {
+                    result=result*i;
+                }
+            }
+            return result;
+        }
+        function Fibonacci(num) {
+            var sequence=[0,1];
+            for(var i=2;i<=num;i++) {
+                sequence[i] = sequence[i -1] + sequence[i-2];
+            }
+            return sequence;
+        }
+        function secondToLast(arr) {
+            return arr.length-2;
+        }
+        function nthToLast(arr, n) {
+            return arr.length-n;
+        }
+        function secondLarge(arr) {
+            var max=0;
+            var secondMax=0;
+            if(!arr.length < 2) {
+                for(var i=0;i<arr.length;i++) {
+                    if(max < arr[i]) {
+                        if(arr[i] <max && arr[i] >arr[i-1]) {
+                            secondMax=arr[i];
+                        }
+                    }
+                }
+            }
+            return secondMax;
+        }
+        function doubleTrouble(arr) {
+            var b=[];
+            for(var i=0;i<arr.length;i++) {
+                b.push(arr[i]);
+                b.push(arr[i]);
+            }
+            arr = b;
+            return arr;
+        }
+        // assignment 1: create a fib(nth) function
+        function fib(n) {
+            if(n == 0 || n == 1) {
+                return n;
+            }
+            return fib(n-2) + fib(n-1);
+        }
+        // assignment 2: recursive fill on index2.html
+
+    </script>
+</body>
+</html>

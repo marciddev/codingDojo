@@ -1,0 +1,149 @@
+*{
+margin: 0px;
+padding: 0px;
+}
+#container {
+    width: 970px;
+    height: 1000px;
+    background-image: radial-gradient(#6F5964, #2C1B20);
+    border: 1px solid black;
+    display: inline-block;
+}
+#header {
+    width: 970px;
+    height: 65px;
+    background-color: white;
+    display: inline-block;
+}
+#subHeader {
+    width: 893px;
+    height: 265px;
+    display: inline-block;
+    margin: 23px;
+    margin-top: 15px;
+}
+#subHeader img {
+    display: inline-block;
+    border: 5px solid #C0C0C0;
+    width: 400px;
+    height: 263px;
+}
+#heading {
+    background-image: linear-gradient(#FFFEFF, #DBCDDA);
+    width: 442px;
+    height: 264px;
+    margin-left: 32px;
+    display: inline-block;
+    vertical-align: top;
+}
+#headingLabel {
+    display: inline-block;
+    width: 443px;
+    height: 48px;
+    background-image: linear-gradient( #AAAAB0, #7f7e86, #AAAAB0);
+}
+#body {
+    width: 912px;
+    height: 298px;
+    display: inline-block;
+    margin-top: 45px;
+    margin-left: 3px;
+}
+.bodyBox {
+    width: 274px;
+    height: 330px;
+    background-image: linear-gradient(#FFFEFF, #DBCDDA);
+    display: inline-block;
+    margin-left: 22px;
+}
+.bodyBoxLabel {
+    width: 274px;
+    height:40px;
+    background-image: linear-gradient( #AAAAB0, #7f7e86, #AAAAB0);
+    display: inline-block;
+}
+#subFooter {
+    width: 912px;
+    height: 204px;
+    display: inline-block;
+    margin-left: 3px;
+}
+.subFooterBox {
+    width: 274px;
+    height: 196px;
+    display: inline-block;
+    margin-left: 22px;
+    background-image: linear-gradient(#FFFEFF, #DBCDDA);
+}
+.subFooterBoxLabel {
+    width: 274px;
+    height:40px;
+    background-image: linear-gradient( #AAAAB0, #7f7e86, #AAAAB0);;
+}
+#footer {
+    width: 970px;
+    height: 80px;
+    background-color: #F8F8F8;
+    display: inline-block;
+}
+h3{
+    margin: 10px;
+    color: white;
+    display: inline-block;
+}
+h1{
+    color: black;
+    display: inline-block;
+    margin-top: 10px;
+}
+.bodyImages {
+    width: 274px;
+    height: 120px;
+    display: inline-block;
+}
+.boxText {
+    display: inline-block;
+}
+.technologies {
+    display: inline-block;
+    width: 37px;
+    margin: 5px;
+    margin-left: 2px;
+}
+.button {
+    display: inline-block;
+    width: 65px;
+    height: 20px;
+    margin-left: 90px;
+    background-color: #407D61;
+    border-radius: 7.5px;
+    color: white;
+    border: 1px solid black;
+}
+#familyButton {
+    width: 120px;
+    margin-right: 60px;
+}
+#fiveElevenButton {
+    width: 90px;
+}
+#header h2 {
+    display: inline-block;
+    margin-left: 440px;
+    color: black;
+}
+#footerP1 {
+    vertical-align: top;
+    margin: 15px 450px 10px 355px;
+    display: inline-block;
+    width: 400px; 
+}
+.footerPics {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-left: 120px;
+}
+#footer p {
+    display: inline-block;
+}

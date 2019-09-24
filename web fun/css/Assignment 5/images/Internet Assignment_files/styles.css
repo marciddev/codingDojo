@@ -1,0 +1,21 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+#container {
+    width: 970px;
+    height: 1000px;
+    position: fixed;
+    border: 1px solid black;
+    background-size: contain;
+}
+#header {
+    width: 970px;
+    height: 200px;
+    border: 1px solid red;
+    display: inline-block;
+}
+#header img{
+    width: 150;
+    height: 150px;
+}

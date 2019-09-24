@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            //1 to 255
+            function To255() {
+                for(var i=1;i < 256;i++) {
+                console.log(i);
+                }
+            }
+            //get even 1000
+            var sum=0;
+            function even1000() {
+                for(var i=0;i < 1001; i++) {
+                    if(i % 2 === 0) {
+                        sum += i;
+                    }
+                }
+            }
+            //sum odd 5000
+            var sum = 0;
+            function odd5000() {
+                for(var i=0;i <5001; i++) {
+                    if(i % 2 == 1) {
+                        sum += i;
+                    }
+                }
+                return sum;
+            }
+            //iterate an array
+            var sum = 0;
+            function iterateArr(arr) {
+                for(var i=0; i<arr.length;i++) {
+                    sum+=arr[i];
+                }
+                return sum;
+            }
+            //Find max
+            var max=0;
+            function findMax(arr) {
+                for(var i=0; i<arr.length; i++) {
+                    if(max < arr[i]) {
+                        max = arr[i];
+                    }
+                }
+                return max;
+            }
+            //Find average
+            var sum = 0;
+            var avg = 0;
+            function findAvg(arr) {
+                for(var i=0; i<arr.length;i++) {
+                    sum += arr[i];
+                }
+                avg = sum/arr.length;
+                return avg;
+            }
+            //odd numbers from 1 to 50
+            function oddToFifty() {
+                var array=[];
+                for(var i=1; i<51; i++) {
+                    if(i%2 == 1) {
+                        array.push(i);
+                    }
+                }
+                return array;
+            }
+            //Greater than Y
+            var count=0;
+            function greaterThanY(arr, y) {
+                for(var i=0; i<arr.length; i++) {
+                    if(arr[i]>y) {
+                        count++;
+                    }
+                }
+                return count++;
+            }
+            //Squares
+            function squares(arr) {
+                for(var i=0;i<arr.length;i++) {
+                    arr[i] = arr[i]*arr[i];
+                }
+                return arr;
+            }
+            //Negatives
+            function negatives(arr) {
+                for(var i=0;i<arr.length;i++) {
+                    if(arr[i]<0) {
+                        arr[i]=0;
+                    }
+                }
+                return arr;
+            }
+            //Max/Min/Avg
+            var max=0;
+            var min=0;
+            var avg=0;
+            var sum=0;
+            function maxMinAvg(arr) {
+                for(var i=0;i<arr.length;i++) {
+                    if(max < arr[i]) {
+                        max = arr[i];
+                    } else if(min > arr[i]) {
+                        min = arr[i];
+                    }
+                    sum+=arr[i];
+                }
+                avg = sum/arr.length;
+                return max,min,avg;
+            }
+            //Swap Values
+            var temp=0;
+            function swapValues(arr) {
+                temp = arr[0];
+                arr[0] = arr[arr.length-1];
+                arr[arr.length-1] = temp;
+                return arr;
+            }
+            //Number to String
+            function toString(arr) {
+                for(var i=0;i<arr.length;i++) {
+                    if(arr[i] < 0) {
+                        arr[i]='Dojo"'
+                    }
+                }
+                return arr;
+            }
+        </script>
+    </body>
+</html>
