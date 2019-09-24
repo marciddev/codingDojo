@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pacman Demo</title>
+    <style type="text/css">
+        body{
+            background-color: gray;
+        }
+        div.row div {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        div.brick{
+            background-color: purple;
+        }
+        div.coin{
+            background-image: url('coin.png');
+            background-size: 5px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        div.pacman {
+            background-image: url('pacman.gif');
+            background-size: 20px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div id="world"></div>
+    <script>
+        var world = [
+            [2,2,2,2,2,2,2,2,2,2,2,2,2],
+            [2,0,0,0,0,0,0,0,0,0,0,0,2],
+            [2,0,0,0,0,0,0,0,0,0,0,0,2],
+            [2,0,1,0,0,0,0,0,0,0,0,0,2],
+            [2,0,1,0,0,0,0,0,0,0,0,0,2],
+            [2,0,1,0,0,0,0,0,0,0,0,0,2],
+            [2,0,1,1,0,0,0,0,0,0,0,0,2],
+            [2,0,0,1,0,0,0,0,0,0,0,0,2],
+            [2,0,0,1,1,1,1,1,1,1,1,1,2],
+            [2,0,0,0,0,0,0,0,0,0,0,0,2],
+            [2,2,2,2,2,2,2,2,2,2,2,2,2]
+        ];
+        function displayWorld() {
+            var output='';
+            for(var i=0; i<world.length;i++) {
+                output +="\n<div class='row'>";
+                for(var j=0;j<world[i].length;j++) {
+                    if(world[i][j] == 2) {
+                        output += "\n\t<div class='brick'></div>";
+                    } else if(world[i][j] == 1) {
+                        output += "\n\t<div class='coin'></div>";
+                    } else if(world[i][j] == 0) {
+                        output += "\n\t<div class='empty'></div>"
+                    }
+                }
+                output += "</div>";
+            }
+            console.log(output);
+            document.getElementById('world').innerHTML = output;
+        }
+    </script>
+</body>
+</html>
