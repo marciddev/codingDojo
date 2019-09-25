@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('document').ready(function() {
+            $('#h1').click(function() {
+                $('#h1').hide();
+            })
+            $('p').click(function() {
+                $('h1').show();
+            })
+            $('h4').click(function() {
+                $('h4').hide().text('sliding down').slideDown();
+            })
+            $('#img').click(function() {
+                $('#img').slideUp();
+                $('h5').slideToggle();
+            })
+            $('#fOut').click(function() {
+                $('#fOut').fadeOut();
+                $('#fOut').fadeIn();
+            })
+            $('#addClass').click(function() {
+                $('#addClass').addClass('addClass')
+            })
+            $('#before').click(function() {
+                $('#before').before('<h1>success</h1>');
+            })
+            $('#after').click(function() {
+                $('#after').after('<h1>text added after success');
+            })
+            $('#append').click(function() {
+                $('#append').html('<h1>success</h1>').append('<p>test</p>');
+            })
+            $('h6').click(function() {
+                $('h6').attr('style', 'background-color: red;');
+                $('h6').text('returned the current value of <h6>').val();
+            })
+            
+        })
+
+
+
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+    <h1 id="h1">this is a header</h1>
+    <p>I am experimenting with java query</p>
+    <a href="https://www.google.com" style="text-decoration: none;">google</a>
+    <h2>slide down</h2>
+    <h4>click me</h4>
+    <img src="book.jpg" alt="" id="img">
+    <h5>click the image to make it dissappear!</h5>
+    <div id='fading'>
+        <p id="fOut">fade</p>
+    </div>
+    <h1 id="addClass">change bg color(click me)</h1>
+    <p id="before">add text as a h1 before this text (click)</p>
+    <p id="after">add text after as an h1 to this text(click)</p>
+    <h5 id="append">test</h5>
+    <h6>turn me red</h6>
+</body>
+</html>
