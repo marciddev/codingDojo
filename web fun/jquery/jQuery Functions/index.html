@@ -42,6 +42,11 @@
                 $('h6').attr('style', 'background-color: red;');
                 $('h6').text('returned the current value of <h6>').val();
             })
+            $('a').hover(function() {
+                $('a').html("<h1>you hovered over me</h1>");
+            }, function() {
+                $('a').html("<h1>you stopped hovering over me</h1>");
+            })
             
         })
 
@@ -56,20 +61,19 @@
 
 </head>
 <body>
-    <h1 id="h1">this is a header</h1>
-    <p>I am experimenting with java query</p>
-    <a href="https://www.google.com" style="text-decoration: none;">google</a>
-    <h2>slide down</h2>
-    <h4>click me</h4>
+    <h1 id="h1">hide me</h1>
+    <p>show all h1</p>
+    <h4>slide me down</h4>
     <img src="book.jpg" alt="" id="img">
     <h5>click the image to make it dissappear!</h5>
     <div id='fading'>
-        <p id="fOut">fade</p>
+        <p id="fOut">fade me in and out</p>
     </div>
-    <h1 id="addClass">change bg color(click me)</h1>
+    <h1 id="addClass">change bg color(click me(addClass))</h1>
     <p id="before">add text as a h1 before this text (click)</p>
-    <p id="after">add text after as an h1 to this text(click)</p>
-    <h5 id="append">test</h5>
-    <h6>turn me red</h6>
+    <p id="after">add text as an h1 after this text(click)</p>
+    <h5 id="append">.append</h5>
+    <h6>turn me red(attr)</h6>
+    <a href="" style="text-decoration: none; font-size: 15pt;">hover over me</a>
 </body>
 </html>
