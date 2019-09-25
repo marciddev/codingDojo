@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    width: 970px;
+    height: 1000px;
+}
+body img {
+    width: 230px;
+    height: 230px;
+    display: inline-block;
+}
+button {
+    background-image: radial-gradient(gray,purple);
+    width: 450px;
+    height: 100px;
+    margin-left: 250px;
+    color: white;
+    font-size: 30pt;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: none;
+    text-decoration: none;
+    box-shadow: 3px 3px 2px gray; 
+    border-radius: 10px;
+}

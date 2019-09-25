@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Dissapearing ninjas</title>
+    <script>
+        $('document').ready(function() {
+            $('img').click(function (){
+                $(this).fadeOut();
+            })
+            $('button').click(function() {
+                $('img').show();
+            })
+        })
+    
+    
+    
+    </script>
+</head>
+<body> 
+    <div class="row">
+        <img src='tennis-ball.png' alt='tennis-ball'>
+        <img src='tennis-ball.png' alt='tennis-ball'>
+        <img src='tennis-ball.png' alt='tennis-ball'>
+        <img src='tennis-ball.png' alt='tennis-ball'>
+    </div>
+    <div class="row">
+        <img src='tennis-ball.png' alt='tennis-ball'>
+        <img src='tennis-ball.png' alt='tennis-ball'>
+        <img src='tennis-ball.png' alt='tennis-ball'>
+        <img src='tennis-ball.png' alt='tennis-ball'>
+    </div>
+    <button>Restore</button>
+</body>
+</html>
