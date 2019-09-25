@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>puzzle</title>
+    <script>
+        $('document').ready(function() {
+            $('#cat0').click(function() {
+                $('#cat0').attr('src', 'img/ninja1.png');
+                $('#ninja1').attr('src', 'img/cat0.png');//only works once
+            })
+            $('#cat1').click(function() {
+                $('#cat1').attr('src', 'img/ninja2.png');//only works once
+                $('#ninja2').attr('src', 'img/cat1.png');
+            })
+            $('#cat2').click(function() {
+                $('#cat2').attr('src', 'img/ninja3.png');//only works once
+                $('#ninja3').attr('src', 'img/cat2.png');
+            })
+        })
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    <img src="img/cat0.png" alt="" id="cat0">
+    <img src="img/ninja1.png" alt="" class ="ninja" id="ninja1">
+    <img src="img/cat1.png" alt="" class="cat" id="cat1">
+    <img src="img/ninja2.png" alt="" class ="ninja" id="ninja2">
+    <img src="img/ninja3.png" alt="" class ="ninja" id="ninja3">
+    <img src="img/cat2.png" alt="" class="cat" id="cat2">
+</body>
+</html>
