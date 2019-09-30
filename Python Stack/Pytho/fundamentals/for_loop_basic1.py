@@ -24,11 +24,3 @@
 #         print(i)
 #     else:
 #         continue
-b = 500
-print(b)
-def a():
-    b = 300
-    print(b)
-print(b)
-a()
-print(b)
