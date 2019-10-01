@@ -1,19 +1,19 @@
 class User:
     def __init__(self, name):
         self.name=name
-        self.user_balance = 0
+        self.account = BankAccount(int_rate=2, bal =0)
     def make_deposit(self, amount):
-        self.user_balance += amount
+        self.account.bal += amount
         return self
     def make_withdrawl(self,amount):
-        self.user_balance -= amount
+        self.account.bal -= amount
         return self
     def display_user_balance(self):
-        print(self.user_balance)
+        print(self.account.bal)
         return self
     def transfer_money(self, amount, user):
-        self.user_balance -= amount
-        user.user_balance += amount
+        self.account.bal -= amount
+        user.account.bal += amount
         print(self.name + ' has transferred ' + str(amount) + ' to ' + user.name)
         return self
 user2 = User('kevin')
