@@ -27,3 +27,28 @@ user4.display_user_balance()
 user2.transfer_money(35, user4)
 user2.display_user_balance()
 user4.display_user_balance()
+
+class BankAccount:
+    def __init__(self, int_rate, bal):
+        self.int_rate = int_rate
+        self.bal = bal
+    def deposit(self, amount):
+        self.bal += amount
+        return self
+    def withdrawl(self, amount):
+        if(self.bal <= 0):
+            print("insufficient funds")
+        else:
+            self.bal -= amount
+            return self
+    def display_account_info(self):
+        print('balance: ', str(self.bal))
+    def yield_interest(self):
+        if(self.bal > 0):
+            self.bal = self.bal*self.int_rate
+        return self
+
+account1=BankAccount(0.2, 500)
+account2=BankAccount(0.9, 1000)
+account1.deposit(10).deposit(12).deposit(14).withdrawl(5).yield_interest().display_account_info()
+account2.deposit(10).deposit(20).withdrawl(5).withdrawl(5).withdrawl(2).withdrawl(3).yield_interest().display_account_info()
