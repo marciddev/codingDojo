@@ -42,10 +42,6 @@ deck1.shuffle()
 for i in range(len(deck1.deck)):
     print(deck1.deck[i].name)
 print(f"*{deck1.deal()}**************")
-
-#     def deal(self):
-#         # removes the "top" Card instance from the deck and returns it
-
 # class Player:
 #     # a Player instance should have a "hand" that holds 5 Card instances.
 #     # a Player instance should have a "name" as well

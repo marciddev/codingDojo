@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Hello Flask</Title>
+        <style>
+            .bluebox {
+                width: 200px;
+                height: 200px;
+                display: inline-block;
+                background-color: blue;
+                margin-left: 50px;
+            }
+            #boxes {
+                width: 100%;
+                height: 200px;
+                display: inline-block;
+                margin-top: 200px;
+            }
+        
+        
+        
+        </style>
+    </head>
+    <body>
+        <div id = "boxes">
+            {% for i in range(num_times) %}
+                <div class="bluebox"></div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
