@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My number was {{ session['ranNum'] }}</h1>
+    <p>{% if session['number'] < session['ranNum']  %}</p>
+    <h1>input is less than my number!</h1>
+    <p>{% elif session['number'] > session['ranNum'] %}</p>
+    <h1>input is greater than my number!</h1>
+    <p>{% elif session['number'] == session['ranNum'] %}</p>
+    <h1>Correct!</h1>
+    <p>{% else %}</p>
+    <h1>Input was invalid!</h1>
+    <p>{% endif %}</p>
+</body>
+</html>
