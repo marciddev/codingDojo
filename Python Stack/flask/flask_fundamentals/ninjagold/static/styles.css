@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Courier New";
+}
+#yourgold {
+    margin-left: 50px;
+}
+#container {
+    height: 1000px;
+    width: 100%;
+    border: 1px solid green;
+}
+#goldenCount {
+    background-color: gainsboro;
+    border: 2px solid blue;
+    box-shadow: 1px 1px black;
+}
+.goldBoxes {
+    display: inline-block;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+    margin-top: 100px;
+    margin-left: 50px;
+    background-image: radial-gradient(#CEF0EF, orange);
+    box-shadow:0.5px 0.5px 3px black;
+    border-radius: 2px;
+    border: 3px solid gold
+}
+.goldBoxes h1, .goldBoxes p, .goldBoxes input{
+    margin-top: 20px;
+    font-family: "Trebuchet MS";
+}
+.goldBoxes input {
+    width: 90px;
+    background-color: #FFC107;
+    border: 1px solid gold;
+    border-radius: 5px;
+}
+#activityLog {
+    width: 1200px;
+    height: 250px;
+    border: 1px solid gold;
+    margin-left: 50px;
+    margin-top: 100px;
+    background-color: #E9ECEF;
+    border-radius: 5px;
+}
+#resetbt {
+    margin-left: 33%;
+    margin-top: 25px;
+    width: 100px;
+    height: 50px;
+    font-family: "Trebuchet MS";
+    font-weight: bold;
+}
