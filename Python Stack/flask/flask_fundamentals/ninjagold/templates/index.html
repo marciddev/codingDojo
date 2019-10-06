@@ -45,16 +45,21 @@
             </form>
         </div>
         <div id="activityLog">
-            <p style="color: green;">FARM: You earned: {{session['farm']}} gold!</p> 
-            <p style="color: green;">CAVE: You earned: {{session['cave']}} gold!</p>
-            <p style="color: green;">HOUSE: You earned: {{session['house']}} gold!</p>
-            <p style="color: green;">CASINO: You earned: {{session['casino']}} gold!</p>
+            {% for i in range(session['log']|length, -1, -1) %}
+            {{ session['log'][i]|safe }}
+            {% endfor %}
         </div>
+        {% if session['count'] >= 15 %}
         <form action="/sclear" method="post">
             <input type="hidden"name="reset"value="value">
             <button type="submit"id="resetbt" class="btn btn-warning"name="resetbutton">Reset</button>
         </form>
-
+        {% if session['goldCounts'] < 500 %}
+        <p style="font-size: 20pt; font-weight: bold; color: red; margin-left: 350px; margin-top: 50px;">*** YOU MAY KEEP GOING, BUT YOU HAVE LOST! ***</p>
+        {% else %}
+        <p style="font-size: 20pt; font-weight: bold; color: red; margin-left: 350px; margin-top: 50px;">*** YOU WON! ***</p>
+        {% endif %}
+        {% endif %}
 
 
 
