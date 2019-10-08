@@ -4,20 +4,20 @@ app = Flask(__name__)
 app.secret_key = "123"
 def actLog(who, count):
     if who == "farm":
-        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold;'>You have earned {session['farm']} gold from farm!</p>")
+        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold; line-height: 3.5px;'>You have earned {session['farm']} gold from farm!</p>")
         session['count'] += 1
     elif who == "cave":
-        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold;'>You have earned {session['cave']} gold from cave!</p>")
+        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold; line-height: 3.5px;'>You have earned {session['cave']} gold from cave!</p>")
         session['count'] += 1
     elif who == "house":
-        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold;'>You have earned {session['house']} gold from house!</p>")
+        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold; line-height: 3.5px;'>You have earned {session['house']} gold from house!</p>")
         session['count'] += 1
 def casinoLog(gain, count):
     if gain == True:
-        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold;'>You have earned {session['casino']} gold from the casino!</p>")
+        session["log"].append(f"<p style='color: green; font-style: italic; font-weight: bold; line-height: 3.5px;'>You have earned {session['casino']} gold from the casino!</p>")
         session['count'] += 1
     else:
-        session["log"].append(f"<p style='color: red; font-style: italic; font-weight: bold;'>You have lost {session['casino']} gold from the casino!</p>")
+        session["log"].append(f"<p style='color: red; font-style: italic; font-weight: bold; line-height: 3.5px;'>You have lost {session['casino']} gold from the casino!</p>")
         session['count'] += 1
 @app.route("/")
 def homePage():
