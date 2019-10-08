@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'random_words/css/styles.css'%}">
+</head>
+<body>
+    <h1>Generate a random string!</h1>
+    <h1> {{ request.session.ranStr }}</h1>
+    <h1> COUNT: {{ request.session.count }}</h1>
+    <form action="/randomword" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="generate" value = "ran">
+        <input type="submit" value="Generate!">
+    </form>
+    <form action="/randomword" method = "POST">
+        {% csrf_token %}
+        <input type="hidden" name="generate" value="reset">
+        <input id="resetbt" type="submit" value="Reset">
+    </form>
+</body>
+</html>
