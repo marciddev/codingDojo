@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/styles.css' %}">
+</head>
+<body>
+    <div id="bookadd">
+    <h1>Add an Author</h1>
+        <form action="/processauthors" method="POST">
+            {%csrf_token%}
+            <p>First Name: <input type="text" name="first_name"></p>
+            <p>Last Name: <input type="text" name="last_name"></p>
+            <label for="notes" style="display: block;">Notes: </label>
+            <textarea name="notes" cols=40 rows=5></textarea>
+            <input type="submit">
+        </form>
+    </div>
+    <div id="addbooktable">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First And Last</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in allauthors %}
+                <tr>
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.first_name}} {{item.last_name}}</td>
+                    <td><a href="/authorprofile/{{item.id}}">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
