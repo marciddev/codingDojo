@@ -12,6 +12,13 @@
 <body>
     <h1 class="heading">Add a TV Show</h1>
     <a href="/" class="heading"><small class="heading" id="small">Go back..</small></a>
+    {% if messages %}
+    <ul class="messages">    
+    {% for message in messages %}    
+        <li style="color: red;"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+    </ul>
+    {% endif %}
     <form action="/shows/create" method="POST">
         {% csrf_token %}
         <input type="hidden" name="hide" value="createshow">
