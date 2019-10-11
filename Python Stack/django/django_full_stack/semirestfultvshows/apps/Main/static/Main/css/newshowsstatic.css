@@ -1,0 +1,68 @@
+h1 {
+    font-size: 30pt;
+    margin-left: 30%;
+    padding-bottom: 30px;
+}
+#edit {
+    margin-left: 500px;
+}
+.heading {
+    display: inline-block;
+}
+#small {
+    vertical-align: top;
+    text-decoration: underline;
+    margin-left: 500px;
+}
+.title {
+    width: 200px;
+    margin-left: 25%;
+    text-align: center;
+}
+#titleinput {
+    width: 525px;
+    margin-left: 400px;
+}
+#titlelabel {
+    margin-left: 550px;
+}
+#titlelabel, #tSubmit {
+    margin-left: 560px;
+    font-weight: bold;
+}
+#networklabel, #networkinput {
+    width: 20%;
+    margin-left: 300px;
+}
+#networklabel {
+    margin-left: 450px;
+    font-weight: bold;
+}
+#networkinput {
+    width: 325px;
+    margin-left: 330px;
+}
+#networkdiv {
+    display: inline-block;
+}
+#datediv {
+    display: inline-block;
+}
+#dateinput {
+    width: 325px;
+}
+#datelabel {
+    margin-left: 145px;
+    font-weight: bold;
+}
+#textareainput {
+    width: 39%;
+    margin-left: 325px;
+}
+#textarealabel {
+    margin-left: 615px;
+    font-weight: bold;
+}
+#networkinput, #dateinput, #textareainput {
+    text-align: center;
+}

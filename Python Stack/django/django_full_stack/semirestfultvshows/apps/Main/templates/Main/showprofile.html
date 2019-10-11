@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/showtable.css'%}">
+</head>
+<body>
+    <a href="/"><small style="margin-left: 800px;">Go Back...</small></a>
+    <h3>Title: {{title}}</h3>
+    <h3>Network: {{network}}</h3>
+    <h3>Release date: {{releasedate}}</h3>
+    <h3>Description: {{description}}</h3>
+    <h3>Updated at: {{updated}}</h3>
+    <a href="/shows/{{id}}/edit">Edit</a>|<form style="display: inline;"action="/shows/{{id}}/delete" method="POST">
+        {% csrf_token %}
+        <input type="hidden"name="hide"value="destroy2">
+        <button type="submit"id="custom">Delete</button>
+    </form>
+</body>
+</html>

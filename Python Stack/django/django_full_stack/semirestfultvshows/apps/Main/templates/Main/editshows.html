@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'Main/css/newshowsstatic.css' %}">
+    </head>
+    <body>
+        <h1 class="heading">Edit Show {{iden}}</h1>
+        <a href="/" class="heading"><small class="heading" id="small">Go back..</small></a>
+        <form action="/shows/{{thirdid}}/update" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="hide" value="editshow">
+            <div class="form-group" id="titlediv">
+                <label for="exampleInputEmail1" class="title" id="titlelabel">Title </label>
+                <input name="editshowtitle"type="text" class="form-control title"id="titleinput"placeholder="Enter show title">
+            </div>
+            <div class="form-group" id="networkdiv">
+                <label for="exampleInputEmail1" class="network" id="networklabel">Network </label>
+                <input type="text" name="editnetworkname"class="form-control network"id="networkinput"placeholder="Enter network name">
+            </div>
+            <div class="form-group" id="datediv">
+                <label for="exampleInputEmail1" class="date" id="datelabel">Date </label>
+                <input type="date" name="editshowdate"class="form-control date"id="dateinput"placeholder="Enter Date">
+            </div>
+            <div class="form-group" id="textareadiv">
+                <label for="exampleInputEmail1" class="textarea" id="textarealabel">Description </label>
+                <textarea class="form-control textarea"name="editshowdesc"id="textareainput"placeholder="Enter description..."rows=5></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary title"id="tSubmit">Update...</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/showtable.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="scrollable">
+        <table class="table">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Network</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+            {% for show in allshows %}
+            <tr>
+                <td scope="row">{{ show.id }}</td>
+                <td>{{ show.title }}</td>
+                <td>{{ show.network }}</td>
+                <td>{{ show.release_date }}</td>
+                <td><a href="/shows/{{show.id}}">Show</a>|<a href="/shows/{{show.id}}/edit">Edit</a>|
+                    <form style="display: inline;"action="/shows/{{show.id}}/delete" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden"name="hide"value="destroy">
+                        <button type="submit"id="custom">Delete</button>
+                    </form></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/shows/new">Create a show</a>
+    </div>
+    
+</body>
+</html>
