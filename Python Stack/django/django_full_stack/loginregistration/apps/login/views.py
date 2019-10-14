@@ -29,7 +29,6 @@ def register(request):
         return redirect("/success")
 def login(request):
     errors = Users.objects.validate2(request.POST)
-    
     if len(errors) > 0:
         for k,v in errors.items():
             messages.error(request, v)
@@ -37,10 +36,10 @@ def login(request):
     else:
         if request.method == "POST":
             if request.POST['hide'] == "log":
-                ema = Users.objects.filter(Email=request.POST["Email"])
+                ema = Users.objects.filter(Email=request.POST["Email2"])
                 if ema:
                     logged_user = ema[0]
-                    if bcrypt.checkpw(request.POST['Password'].encode(), logged_user.Password.encode()):
+                    if bcrypt.checkpw(request.POST['Password2'].encode(), logged_user.Password.encode()):
                         request.session['id'] = logged_user.id
                         request.session['username'] = Users.objects.get(id=logged_user.id).First_Name
                         return redirect("/success")
