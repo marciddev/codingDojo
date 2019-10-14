@@ -1,0 +1,19 @@
+#registration {
+    width: 400px;
+    margin-left: 50px;
+    margin-top: 50px;
+    display: inline-block;
+}
+#registration h1 {
+    margin-bottom: 40px;
+}
+#loginform {
+    width: 25%;
+    display: inline-block;
+    margin-left: 350px;
+    vertical-align: top;
+    margin-top: 50px;
+}
+#loginform h1{
+    margin-bottom: 40px;
+}
