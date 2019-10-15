@@ -1,0 +1,43 @@
+h1 {
+    color: blue;
+}
+#header {
+    border-bottom: 3px solid black;
+    width: 1060px;
+    text-align: center;
+}
+#heading {
+    display: inline-block;
+    font-size: 15pt;
+    margin-left: 525px;
+}
+small {
+    margin-left: 75px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #0F83FF;
+}
+#container {
+    width: 1060px;
+    height: 1000px;
+    display: inline-block;
+}
+#post_message {
+    margin-left: 15%;
+}
+ul {
+    list-style-type: none;
+}
+#PostName {
+    font-weight: bold;
+}
+#PostMessage {
+    font-style: italic;
+}
+#Comment {
+    font-weight: bold;
+}
+#commentcomment {
+    font-weight: normal;
+    font-style: italic;
+}

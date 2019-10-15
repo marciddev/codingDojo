@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Wall</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wall/css/styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h2 style="display: inline-block;">Coding Dojo Wall</h2>
+            <p id="heading">Welcome {{user}}<small><a href="/logoff">log off</a></small></p>
+        </div>
+        <form action="/post-message" method="POST" id="post_message">
+            {% csrf_token %}
+            <h4>Post a Message:</h4>
+            <textarea name="post_message"cols=100 rows=4></textarea>
+            <br>
+            <input type="hidden"name="hide"value="postmessage">
+            <input type="submit" value="Post a message" class="btn btn-primary"style="margin-left: 65%; width: 135px; height: 35px; text-align: center;">
+        </form>
+        {% for post in posts %}
+        <ul>
+            <li id="PostName">{{post.User.First_Name}} {{post.User.Last_Name}} :</li>
+            <ul>
+                <li id="PostMessage">{{post.message}}</li>
+                <ul>{% for comment in post.post_comments.all%}
+                    <li id="Comment">{{comment.User.First_Name}} {{comment.User.Last_Name}}: <span id="commentcomment">{{comment.comment}}</span></li>
+                    {%endfor%}
+                    <form action="/post-comment" method="POST">
+                        {% csrf_token %}
+                        <textarea cols=100 rows=3 name="comment"style="margin-left: 40px;"></textarea>
+                        <br>
+                        <input type="hidden"name="hide"value="hiddencomment">
+                        <input type="hidden"name="postid"value="{{post.id}}">
+                        <input type="submit"class="btn btn-primary"value="Post a Comment"style="margin-left: 65%; width: 135px; height: 35px; text-align: center;">
+                    </form>
+                </ul>
+            </ul>
+        </ul>
+        {% endfor %}
+    </div>
+</body>
+</html>
