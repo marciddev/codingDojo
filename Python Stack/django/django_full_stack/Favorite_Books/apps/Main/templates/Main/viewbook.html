@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/books.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Welcome, {{user.First_Name}}</h1>
+        <a href="/delete">Log off</a>
+    </div>
+    <div id="displaybook">
+        <h1>Title: {{title}}</h1>
+        <h1>Created at: {{created}}</h1>
+        <h1>Updated at: {{updated}}</h1>
+        <h1>Uploaded by: {{by}}</h1>
+        {% if user.id == id.uploaded_by.id %}
+        <form action="/updatedesc" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="formGroupExampleInput2" style="font-size: 30pt; font-weight: bold;">Description</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" name="update_desc"
+                    value="{{description}}">
+            </div>
+            <input type="submit" class="btn btn-primary">
+        </form>
+        {% else %}
+        <h1>Description: {{description}}</h1>
+        {%endif%}
+    </div>
+    <div id="table">
+        <h1>people who like:</h1>
+        {% for person in like_by %}
+        <h2>{{person.First_Name}} {{person.Last_Name}}</h2>
+        {% if person.id == request.session.id %}
+        <a href="unfavorite_book">Unfavorite</a>
+        {% endif %}
+        {% endfor %}
+        {% if sessionid not in like_by%}
+        <a href="favorite_book">Favorite</a>
+        {% endif %}
+    </div>
+</body>
+
+</html>

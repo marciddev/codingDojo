@@ -1,0 +1,10 @@
+#register {
+    width: 450px;
+    display: inline-block;
+}
+#login {
+    width: 450px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 200px;
+}

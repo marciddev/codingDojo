@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/books.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Welcome, {{username.First_Name}}</h1>
+        <a href="/delete">Log off</a>
+    </div>
+    <div id="add_a_book">
+        <h1>Add a Favorite Book</h1>
+        <form action="/add_book" method="POST">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li style="color: red;" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">Title</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="new_book_title"
+                    placeholder="Title...">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Description</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="new_book_description"
+                    placeholder="Description...">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Add">
+        </form>
+    </div>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Uploaded By </th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{book.id}}</td>
+            <td><a href="books/{{book.id}}">{{book.title}}</a></td>
+            <td>{{book.description}}</td>
+            <td>{{book.uploaded_by.First_Name}} {{book.uploaded_by.Last_Name}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
