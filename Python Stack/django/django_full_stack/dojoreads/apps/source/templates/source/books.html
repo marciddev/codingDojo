@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'source/css/booksstyles.css' %}">
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-dark bg-primary">
+        <h4>Welcome, {{user}}</h4>
+        <a href="/books/add" class="text-danger font-weight-bold">Add Book and Review</a>
+        <a href="/clear" class="text-danger font-weight-bold">Logout</a>
+    </nav>
+    <div id="bookreviews">
+        <h4 class="text-primary">Recent book reviews:</h4>
+        {% for review in allreviews %}
+        <a href="/books/{{review.book.id}}">{{review.book.title}}</a>
+        <ul>
+            <h6>rating: {{review.rating}}</h6>
+            <a href="/users/{{review.user.id}}">{{review.user.first_name}}</a> says:
+            <p>{{review.message}}</p>
+            <p>Posted on {{review.updated_at}}</p>
+        </ul>
+        <br>
+        {% endfor %}
+    </div>
+    <div id="allreviewscontainer">
+        <h4>All books with reviews:</h4>
+        <div id="allreviews">
+            {% for review in allreviews %}
+            <h4><a href="/books/{{review.book.id}}">{{review.book.title}}</a></h2>
+                {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

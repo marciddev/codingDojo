@@ -1,0 +1,7 @@
+#add_book_form {
+    width: 25%;
+    height: 50%;
+}
+#add_book_form *{
+    display: block;
+}

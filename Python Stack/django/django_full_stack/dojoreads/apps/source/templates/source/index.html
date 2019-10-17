@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login/Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'source/css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="registration">
+        <h1>Register</h1>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }} text-danger" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/register-user" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="hide" value="register">
+            <div class="form-group">
+                <label for="formGroupExampleInput">First Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="First Name..."
+                    name="register_first_name">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Last Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Last Name..."
+                    name="register_last_name">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Email</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email..."
+                    name="register_email">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Password</label>
+                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password..."
+                    name="register_password">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Confirm Password</label>
+                <input type="password" class="form-control" id="formGroupExampleInput2"
+                    placeholder="Confirm Password..." name="register_confirm_password">
+            </div>
+            <input type="submit" class="btn btn-danger" value="Register!">
+        </form>
+    </div>
+    <div id="login">
+        <h1>Login</h1>
+        <form action="/login-user" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="hide" value="login">
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Email</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email..."
+                    name="login_email">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Password</label>
+                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password..."
+                    name="login_password">
+            </div>
+            <input type="submit" class="btn btn-danger" value="Login!">
+        </form>
+    </div>
+</body>
+
+</html>

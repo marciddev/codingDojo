@@ -1,0 +1,10 @@
+#profile {
+    display: inline-block;
+    width: 45%;
+}
+#reviewsubmit {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin-top: 200px;
+}

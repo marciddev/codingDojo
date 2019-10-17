@@ -1,0 +1,19 @@
+#bookreviews {
+    display: inline-block;
+}
+#allreviews {
+    display: inline-block;
+    border: 1px solid black;
+    overflow: auto;
+    width: 300px;
+    height: 400px;
+    vertical-align: bottom;
+}
+#allreviewscontainer {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 800px;
+    margin-top: 100px;
+    height: 500px;
+    padding-top: 50px;
+}

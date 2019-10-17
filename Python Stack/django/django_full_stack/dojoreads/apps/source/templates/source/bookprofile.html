@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'source/css/bookprofilestyles.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="profile">
+        <h2>{{book.title}}</h2>
+        <h6>Author: {{book.author.first_name}}</h6>
+        <br>
+        <h2>Reviews: </h2>
+        {% for review in reviews %}
+        <h6>rating: {{review.rating}}</h6>
+        <a href="">{{review.user.first_name}}</a> says:
+        <p>{{review.message}}</p>
+        {% if review.user == username%}
+        <form action="/delete-review" method="POST">
+            {% csrf_token %}
+            <input type="hidden"name="hide"value={{review.id}}>
+            <input type="submit"class="btn btn-link"value="Delete">
+        </form>
+        {% endif %}
+        <p>Posted on {{review.updated_at}}</p>
+        {% endfor %}
+    </div>
+    <div id="reviewsubmit">
+        <form style="vertical-align: top;"action="/books/submit-review" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="formGroupExampleInput2"><h1>Add a review:</h1> </label>
+                <textarea class="form-control" id="formGroupExampleInput2"
+                    placeholder="Enter review here..." name="review_submit_message"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Rating</label>
+                <input style="width: 75px;"type="number" class="form-control" id="formGroupExampleInput2"
+                    placeholder="Enter Rating..." name="review_submit_rating">
+            </div>
+            <input type="submit" class="btn btn-danger">
+        </form>
+    </div>
+</body>
+
+</html>
