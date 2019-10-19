@@ -4,6 +4,7 @@ from apps.login.models import *
 class Post(models.Model):
     message=models.CharField(max_length=255)
     User=models.ForeignKey(Users)
+    expired_at = models.DateTimeField()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     def __repr__(self):

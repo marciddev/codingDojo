@@ -28,7 +28,7 @@
         {% for post in posts %}
         <ul>
             <li id="PostName">{{post.User.First_Name}} {{post.User.Last_Name}} :</li>
-            {% if post.User.id == request.session.id and current <= request.session.posted %}
+            {% if post.User.id == request.session.id and now <= post.expired_at%}
             <li><a href="/delete-post/{{post.id}}">Delete Post</a></li>
             {% endif %}
             <ul>

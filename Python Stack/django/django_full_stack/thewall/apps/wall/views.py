@@ -2,15 +2,14 @@ from django.shortcuts import render, HttpResponse, render, redirect
 from .models import *
 from apps.login.views import *
 from apps.login.models import *
-from datetime import timedelta
-import datetime
-
+from datetime import timedelta, datetime
+import time
 def wall(request):
     context = {
         "user": Users.objects.get(id=request.session['id']).First_Name,
         "posts": Post.objects.all(),
         "comments": Comment.objects.all(),
-        "current": datetime.datetime.now(),
+        "now": datetime.now()
     }
     return render(request, "wall/index.html", context)
 def logoff(request):
@@ -19,8 +18,8 @@ def logoff(request):
 def postmsg(request):
     if request.method == "POST":
         if request.POST['hide'] == "postmessage":
-            Post.objects.create(message=request.POST["post_message"], User=Users.objects.get(id=request.session['id']))
-            request.session["posted"] = datetime.datetime.now() + timedelta(minutes=30)
+            Post.objects.create(message=request.POST["post_message"], User=Users.objects.get(id=request.session['id']), expired_at = datetime.now())
+            coppa = timedelta(minutes=30)
     return redirect("/wall")
 def commentmsg(request):
     if request.method=="POST":
