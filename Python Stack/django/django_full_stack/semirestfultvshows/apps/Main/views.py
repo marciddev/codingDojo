@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, render, redirect
 from apps.Main.models import *
 from django.contrib import messages
+from datetime import datetime, date
 # Create your views here.
 def homepage(request):
     return redirect("/shows")
@@ -17,7 +18,11 @@ def createshow(request):#POST METHOD: Gathers the new show data and adds to db a
             if request.POST["hide"] == "createshow":
                 n=Show.objects.create(title=request.POST['showtitle'],network=request.POST['networkname'],release_date=request.POST['showdate'],description=request.POST['showdesc'])
                 n.save()
-        return redirect(f"/shows/{n.id}")
+                if datetime.now() < datetime.strptime(n.release_date, '%Y-%m-%d'):
+                    messages.error(request, "Invalid date!")
+                    return redirect("/shows/new")
+                else:
+                    return redirect(f"/shows/{n.id}")
 
 def viewshow(request, grabid):#GET METHOD: Showing the individual show's "profile"
     request.session['ident'] = grabid
@@ -59,15 +64,16 @@ def updateshow(request, grabid3):#POST METHOD: Udpating the information they inp
         if request.method == "POST":
             if request.POST['hide'] == "editshow":
                 n2= Show.objects.get(id=grabid3)
-                n2.title=request.POST['editshowtitle']
-                n2.network=request.POST['editnetworkname']
-                n2.release_date=request.POST['editshowdate']
-                n2.description=request.POST['editshowdesc']
+                n2.title=request.POST['showtitle']
+                n2.network=request.POST['networkname']
+                n2.release_date=request.POST['showdate']
+                n2.description=request.POST['showdesc']
                 n2.save()
-        context = {
-            "thirdid": grabid3
-        }
-        return redirect(f"/shows/{n2.id}", context)#POST METHOD: Deletes the show
+                if datetime.now() < datetime.strptime(n2.release_date, '%Y-%m-%d'):
+                    messages.error(request, "Invalid date!")
+                    return redirect(f"/shows/{n2.id}/edit")
+                else:            
+                    return redirect(f"/shows/{n2.id}")#POST METHOD: Deletes the show
 def deleteshow(request, grabid4):
     if request.method == "POST":
         if request.POST['hide'] == "destroy2":

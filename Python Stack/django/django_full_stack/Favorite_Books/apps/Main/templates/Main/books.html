@@ -17,6 +17,7 @@
         <h1>Welcome, {{username.First_Name}}</h1>
         <a href="/delete">Log off</a>
     </div>
+    <p>Here are all of your favorited books: <a href="/favbooks">Favorited Books</a></p>
     <div id="add_a_book">
         <h1>Add a Favorite Book</h1>
         <form action="/add_book" method="POST">
@@ -47,6 +48,7 @@
             <th>Title</th>
             <th>Description</th>
             <th>Uploaded By </th>
+            <th>Favorited(y/n)</th>
         </tr>
         {% for book in books %}
         <tr>
@@ -54,6 +56,11 @@
             <td><a href="books/{{book.id}}">{{book.title}}</a></td>
             <td>{{book.description}}</td>
             <td>{{book.uploaded_by.First_Name}} {{book.uploaded_by.Last_Name}}</td>
+            {% if book in username.liked_books.all %}
+            <td>Yes</td>
+            {% else %}
+            <td><a href="fav_book/{{book.id}}">No(click to favorite!!)</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

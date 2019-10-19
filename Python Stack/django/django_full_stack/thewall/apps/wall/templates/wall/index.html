@@ -8,6 +8,8 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'wall/css/styles.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript">
+    </script>
 </head>
 <body>
     <div id="container">
@@ -26,6 +28,9 @@
         {% for post in posts %}
         <ul>
             <li id="PostName">{{post.User.First_Name}} {{post.User.Last_Name}} :</li>
+            {% if post.User.id == request.session.id and current <= request.session.posted %}
+            <li><a href="/delete-post/{{post.id}}">Delete Post</a></li>
+            {% endif %}
             <ul>
                 <li id="PostMessage">{{post.message}}</li>
                 <ul>{% for comment in post.post_comments.all%}

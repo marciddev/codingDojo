@@ -103,3 +103,12 @@ def descupdate(request):
     desc.description = request.POST['update_desc']
     desc.save()
     return redirect(f"/books/{desc.id}")
+def favbook(request, bid):
+    us = User.objects.get(id=request.session["id"])
+    us.liked_books.add(Book.objects.get(id=bid))
+    return redirect("/books")
+def allfavbooks(request):
+    context = {
+        "all": User.objects.get(id=request.session["id"]).liked_books.all()
+    }
+    return render(request, "Main/favorite_books.html", context)

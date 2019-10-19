@@ -17,6 +17,9 @@ class UserManager(models.Manager):
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         if not EMAIL_REGEX.match(postData['Email']):
             errors['emailinvalid'] = "Invalid Email!"
+        allemails = Users.objects.filter(Email=postData["Email"])
+        if allemails:
+            errors["usedemail"] = "Email already used!(unique)"
         return errors
     def validate2(self, postData):
         errors = {}
@@ -33,6 +36,7 @@ class Users(models.Model):
     Last_Name=models.CharField(max_length=255)
     Email=models.CharField(max_length=255)
     Password=models.CharField(max_length=255)
+    Birthday=models.DateField()
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
     objects = UserManager()

@@ -1,66 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("doc is ready")
+            $("#button").click(function(e) {
+                e.preventDefault()
+                console.log("button clicked")
+                console.log("here");
+                for (var i=0;i<document.forms["register"].length; i++ ) {
+                    if(document.forms["register"][i].value == "") {
+                        $("#test").append("<p style='color: red;'>invalid input </p>");
+                    }
+                }
+            })
+        })
+    </script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'login/css/styles.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
+    <p id="test"></p>
     <div id="registration">
         <h1>Register</h1>
         {% if messages %}
-        <ul class="messages">    
-    {% for message in messages %}    
-            <li style="color: red;"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-    {% endfor %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li style="color: red;" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
         </ul>
-{% endif %}
-        <form action="/register" method="POST">
+        {% endif %}
+        <form name="register"action="/register" method="POST">
             {% csrf_token %}
-            <input type = "hidden" name="hide"value="regist">
+            <input type="hidden" name="hide" value="regist">
             <div class="form-group">
                 <label for="First_Name">First Name</label>
-                <input type="text" class="form-control"name="First_Name" id="First_Name" placeholder="First Name...">
+                <input type="text" class="form-control" name="First_Name" id="First_Name" placeholder="First Name...">
             </div>
             <div class="form-group">
                 <label for="Last_Name">Last Name</label>
-                <input type="text" class="form-control" id="Last_Name" name="Last_Name"placeholder="Last Name...">
+                <input type="text" class="form-control" id="Last_Name" name="Last_Name" placeholder="Last Name...">
             </div>
             <div class="form-group">
                 <label for="Email">Email</label>
-                <input type="text" class="form-control" id="Email"name="Email" placeholder="Email...">
+                <input type="text" class="form-control" id="Email" name="Email" placeholder="Email...">
+            </div>
+            <div class="form-group">
+                <label for="birthday_login">Birthday</label>
+                <input type="date" class="form-control" name="birthday_login">
             </div>
             <div class="form-group">
                 <label for="Password">Password</label>
-                <input type="password" class="form-control" id="Password"name="Password"placeholder="Password...">
-            </div>    
+                <input type="password" class="form-control" id="Password" name="Password" placeholder="Password...">
+            </div>
             <div class="form-group">
                 <label for="Confirm_Password">Confirm Password</label>
-                <input type="password" class="form-control" id="Confirm_Password"name="Confirm_Password" placeholder="Confirm Password...">
-            </div>    
-            <input type="submit" class="btn btn-primary">
+                <input type="password" class="form-control" id="Confirm_Password" name="Confirm_Password"
+                    placeholder="Confirm Password...">
+            </div>
+            <input type="submit" class="btn btn-primary" id="button">
         </form>
     </div>
     <div id="loginform">
         <h1>Login</h1>
         <form action="/login" method="POST">
             {% csrf_token %}
-            <input type="hidden"name="hide"value="log">
+            <input type="hidden" name="hide" value="log">
             <div class="form-group">
                 <label for="Email2">Email</label>
-                <input type="text" class="form-control"name="Email2" id="Email" placeholder="Email...">
-            </div>    
+                <input type="text" class="form-control" name="Email2" id="Email" placeholder="Email...">
+            </div>
             <div class="form-group">
                 <label for="Password">Password</label>
-                <input type="password" class="form-control" name="Password2"id="Password" placeholder="Password...">
-            </div>    
+                <input type="password" class="form-control" name="Password2" id="Password" placeholder="Password...">
+            </div>
             <input type="submit" class="btn btn-primary">
         </form>
     </div>
-      
+
 </body>
+
 </html>

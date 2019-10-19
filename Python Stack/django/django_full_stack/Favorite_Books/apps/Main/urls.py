@@ -13,5 +13,7 @@ urlpatterns = [
     url(r'^books/(?P<id>\d+)', views.view_book),
     url(r'^books/unfavorite_book$', views.unfav),
     url(r'^books/favorite_book$', views.fav),
-    url(r'^updatedesc', views.descupdate)
+    url(r'^updatedesc', views.descupdate),
+    url(r'^fav_book/(?P<bid>\d+)$', views.favbook),
+    url(r'^favbooks$', views.allfavbooks)
 ]

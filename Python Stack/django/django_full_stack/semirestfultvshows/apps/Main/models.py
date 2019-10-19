@@ -6,9 +6,11 @@ class ShowManager(models.Manager):
         errors = {}
         if len(postData['showtitle']) < 1:
             errors['showtitle'] = "Title must be more than 1 letter"
+        if Show.objects.filter(title=postData['showtitle']):
+            errors['used_title'] = "Title already used!"
         if len(postData['networkname']) < 1:
             errors['networkname'] = "Network name must be more than 1 letter"
-        if len(postData['showdesc']) < 1:
+        if len(postData['showdesc']) >0 and len(postData["showdesc"]) < 11:
             errors['showdesc'] = "Description must be more than 1 letter"
         return errors
 class Show(models.Model):
