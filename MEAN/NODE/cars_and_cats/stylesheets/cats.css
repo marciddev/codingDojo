@@ -1,0 +1,5 @@
+#img {
+    background-image: url('/images/cat.jpg');
+    width: 500px;
+    height: 500px;
+}
