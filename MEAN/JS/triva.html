@@ -14,24 +14,48 @@
         .center {
             text-align: center;
         }
+
+        .category {
+            display: inline-block;
+            border: 1px solid red;
+            width: 100%;
+            height: 1100px;
+        }
+
+        ul li {
+            list-style-type: none;
+            list-style-position: left;
+            font-weight: bold;
+        }
+
+        button {
+            width: 75%;
+            margin-left: 15px;
+            padding: 0px;
+            height: 100px;
+            margin-bottom: 10px;
+            font-size: 300px;
+            display: block;
+        }
+        .custom-select {
+            width: 50px;
+            height: 50px;
+            display: inline-block !important;
+        }
+        .selecting {
+            float: left;
+        }
+        p:nth-of-type(odd) {
+            margin-left: 10px;
+            display: inline-block;
+        }
+        p {
+            display:inline-block;
+        }
     </style>
 </head>
 
 <body>
-    <script>
-        $(document).ready(function () {
-            $.get("https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=boolean", function (
-                data) {
-                console.log(data);
-                console.log(data.results[0].question);
-                for (var i = 0; i < data.results.length; i++) {
-                    integer = 100 * i + 100;
-                    $(".triv-table").append("<tr><td>" + data.results[i].question + "</td><td>" + data
-                        .results[i].correct_answer + "</td><td>" + integer + "</td></tr>");
-                }
-            })
-        })
-    </script>
     <div class="row">
         <div class="col-sm-4">
             <div class="card">
@@ -55,10 +79,59 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <table class="table triv-table">
-        </table>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="category"></div>
+        </div>
+        <div class="col-sm-4">
+            <div class="category"></div>
+        </div>
+        <div class="col-sm-4">
+            <div class="category"></div>
+        </div>
     </div>
+    <select class='custom-select'>
+        <option>True</option>
+        <option>False</option>
+    </select>
 </body>
-
+<script>
+    $(document).ready(function () {
+        $.get("https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=boolean", function (
+            data) {
+            console.log(data);
+            for (let i = 0; i < data.results.length; i++) {
+                integer = 100 * i + 100;
+                $(".category").first().prepend(
+                    `<ul><li>${data.results[i].question}</li></ul><br><br>`);
+                $(`body .row:nth-of-type(2) .col-sm-4:nth-of-type(2) .category`).prepend(`<p id=o${i} href='' value=1>True</p> | <p id=2o${i} value=2 href=''>False</p>`)
+                $("body .row:nth-of-type(2) .col-sm-4:nth-of-type(2) .category").prepend(`<button class='btn btn-success'id=but${i}>Answer</button>`)
+                $(`#but${i}`).hover(function() {
+                    $(`#but${i}`).html(data.results[i].correct_answer);
+                    console.log(i);
+                }, function() {
+                    $(this).html("Answer");
+                })
+                $(`#o${i}`).click(function() {
+                    if(data.results[i].correct_answer == "True") {
+                        $(this).attr('class', 'text-success');
+                    }
+                    else 
+                    {
+                        $(this).css('color', 'red');
+                    }
+                })
+                $(`#2o${i}`).click(function() {
+                    if(data.results[i].correct_answer == "False") {
+                        $(this).attr('class', 'text-success');
+                    }
+                    else 
+                    {
+                        $(this).css('color', 'red');
+                    }
+                })
+            }
+        })
+    })
+</script>
 </html>
