@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+
+    <title>The Wall</title>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Register or Login</h1>
+        </div>
+
+        <div class="body">
+            <h1>Registration</h1>
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            
+            <form action="/login/validate" method="POST">
+            {% csrf_token %}
+            <h3>First Name: <input name="first" type="text"></h3>
+            <h3>Last Name: <input name="last" type="text"></h3>
+            <h3>eMail: <input name="email" type="email"></h3><br>
+            <h3>Password: <input name="pw" type="password"></h3><br>
+            <h3>Confirm Password: <input name="pw2" type="password"></h3>
+            <div class="button">
+                <input type="submit", value="Register">
+            </div>
+            </form>
+           
+        </div>
+
+        <div class="rightside">
+            <h2>Login</h2>
+            <form action="/login/login" method="POST">
+                {% csrf_token %}
+                <h3>eMail: <input name="email" type="email"></h3>
+                <h3>Password: <input name ="pw" type="password"></h3>
+                <div class="button">
+                    <input type="submit", value="Log In">
+                </div>
+                </form>
+        </div>
+
+        <div class="foot">
+            <h3>Foot Section</h3>
+        </div>
+    </div>
+    
+</body>
+</html>

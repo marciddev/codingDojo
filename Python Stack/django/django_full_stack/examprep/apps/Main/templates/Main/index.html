@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/index.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li style="color: red; font-weight: bold; text-align: center; list-style-position: inside;" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    <div id="register_user">
+        <h1>Register</h1>
+        <form action="/register-user" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">First Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="First Name..."
+                    name="register_first_name">
+            </div>
+            <input type="hidden" name="hide" value="register">
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Last Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Last Name..."
+                    name="register_last_name">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Email</label>
+                <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email..."
+                    name="register_email">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Birthday</label>
+                <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Birthday..."
+                    name="register_birthday">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Password</label>
+                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password..."
+                    name="register_password">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Confirm Password</label>
+                <input type="password" class="form-control" id="formGroupExampleInput2"
+                    placeholder="Confirm Password..." name="register_confirm_password">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Register">
+        </form>
+    </div>
+    <div id="login_user">
+        <h1>Login</h1>
+        <form action="/login-user" method="POST">
+            {% csrf_token %}
+            <input type="hidden"name="hide"value="login">
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Email</label>
+                <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email..."
+                    name="login_email">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Password</label>
+                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password..."
+                    name="login_password">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Login">
+        </form>
+    </div>
+</body>
+
+</html>

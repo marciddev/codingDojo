@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zombie Horde</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/index.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#home').css("color", "#DC3545")
+            $('.navs').hover(function () {
+                $(this).addClass("text-danger")
+            }, function () {
+                    $(this).removeClass("text-danger")
+                    $(this).attr("color", "green")
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <nav class="navbar ">
+        <a id="home"class="active navbar-brand navs" href="/success">Home</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a class="navbar-brand navs" href="/leaderboard">Leaderboard</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a class="navbar-brand navs" href="/activity-log">Activity log</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a class="navbar-brand navs" href="/admin">Admin page</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a class="navbar-brand navs" href="/profile">Profile</a>
+    </nav>
+    <div id="wrapper">
+        {% if messages %}
+        <div class="errorclass">
+            <ul class="messages">
+                {% for message in messages %}
+                <li style="color: red;" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+            <div id="main">
+                <img id="zombie" src="../../static/Main/img/bo2.png" alt="zombie_logo.png">
+                <h5 class="apocalypse_progress text-danger">Apocalypse Progress...</h5>
+                <img id="soldier2" src="../../static/Main/img/soldier2.png" alt="soldier_logo.png">
+                <div id="progress_container">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                            role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 25%; height: 50px !important;"></div>
+                    </div>
+                </div>
+            </div>
+            <a href="/logout" class="btn btn-danger"
+                style="display: block; width: 100px; margin-left: 43%; margin-top: 50px;">Logout</a>
+        </div>
+</body>
+
+</html>

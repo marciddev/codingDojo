@@ -1,0 +1,13 @@
+#reviewform {
+    width: 60%;
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+h1{
+    font-weight: 300 !important;
+}
+label {
+    text-align: left !important;
+}

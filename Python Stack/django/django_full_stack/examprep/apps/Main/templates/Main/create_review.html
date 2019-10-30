@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/create_review.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="reviewform">
+        <h1>Create Book and Review</h1>
+        <form action="/process-review" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="hide" value="create_review">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Title</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title..."
+                    name="create_title">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Author</label>
+                <select class="form-control" name="create_author">
+                    {% for author in authors%}
+                    <option value={{author.id}}>{{author.first_name}} {{author.last_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Review</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Review..."
+                    name="create_review">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Rating</label>
+                <select class="form-control" name="create_rating">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Create Book">
+        </form>
+    </div>
+</body>
+
+</html>

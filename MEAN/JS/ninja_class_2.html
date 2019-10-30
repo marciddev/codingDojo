@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ninjaClassI(name, health=100) {
+            this.name = name;
+            this.health = health;
+            var speed = 3;
+            var strength = 3;
+            this.sayName = function() {
+                return this.name;
+            }
+            this.showStats = function() {
+                return [this.name, strength, speed, this.health];
+            }
+            this.drinkSake = function(){
+                this.health += 100;
+            }
+            this.punch = function(ninja) {
+                ninja.health -= 5;
+                console.log(ninja.name + " just got 5 health taken from you!");
+            }
+            this.kick = function(ninja) {
+                if(ninja instanceof ninjaClassI) {
+                    ninja.health -= 15*this.strength;
+                } else {
+                    console.log("Must be instance of object.")
+                }
+            }
+
+        }
+        var nin1 = new ninjaClassI("Test Ninja");
+    </script>
+</body>
+</html>

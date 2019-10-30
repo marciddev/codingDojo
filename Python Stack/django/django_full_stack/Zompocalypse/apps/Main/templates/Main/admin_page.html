@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WB KEVIN</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/index.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#admin_nav').css("color", "#DC3545")
+            $('.navs').hover(function () {
+                $(this).addClass("text-danger")
+            }, function () {
+                $(this).removeClass("text-danger")
+                $(this).attr("color", "green")
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand navs" href="/success">Home</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a class="navbar-brand navs" href="/leaderboard">Leaderboard</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a class="navbar-brand navs" href="/activity-log">Activity log</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a id="admin_nav" class="navbar-brand navs" href="/admin">Admin page</a>
+        <a href="" class="navs navbar-brand">|</a>
+        <a class="navbar-brand navs" href="/profile">Profile</a>
+    </nav>
+    <div id="wrapper">
+        <a style="display: block; width: 100px;margin-left: 1400px;" href="/logout" class="btn btn-danger">Logout</a>
+        <a style="display: block; width: 250px;margin-left: 1250px; margin-top: 15px;" href="/generate-zombie-users"
+            class="btn btn-danger">Generate 100 Zombie Users</a>
+        <a style="display: block; width: 250px;margin-left: 1250px; margin-top: 15px;" href="/generate-human-users"
+            class="btn btn-danger">Generate 100 Human Users</a>
+        <div id="main_admin">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Health</th>
+                    <th>Species</th>
+                    <th>Action</th>
+                </tr>
+                {% for u in allusers%}
+                {% if not u.username == user.username %}
+                <tr>
+                    <td>{{u.id}}</td>
+                    <td>{{u.username}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.health}}</td>
+                    {% if u.species == zombie %}
+                    <td class="text-danger">{{u.species}}</td>
+                    {% else %}
+                    <td style="color: green;">{{u.species}}</td>
+                    {% endif %}
+                    <td><a href="/delete-user/{{u.id}}" style="color: red;">Delete</a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

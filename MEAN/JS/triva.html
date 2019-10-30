@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css">
+        .heading,
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $.get("https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=boolean", function (
+                data) {
+                console.log(data);
+                console.log(data.results[0].question);
+                for (var i = 0; i < data.results.length; i++) {
+                    integer = 100 * i + 100;
+                    $(".triv-table").append("<tr><td>" + data.results[i].question + "</td><td>" + data
+                        .results[i].correct_answer + "</td><td>" + integer + "</td></tr>");
+                }
+            })
+        })
+    </script>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="heading text-success">Question</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card ">
+                <div class="card-body">
+                    <h1 class="heading text-success">Answer</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card ">
+                <div class="card-body">
+                    <h1 class="heading text-success">Points</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table triv-table">
+        </table>
+    </div>
+</body>
+
+</html>

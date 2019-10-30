@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/books.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <h5 class="navbar-brand">Welcome, {{user.first_name}}!</h5>
+        <a href="/create-review" class="navbar-brand text-primary">Create a book and review</a>
+        <a href="/logout" class="navbar-brand text-primary">Logout</a>
+    </nav>
+    <div id="all_reviews">
+        <h3>All reviews: </h3>
+        <table class="table">
+            <tr>
+                <th>Book</th>
+                <th>Rating</th>
+                <th>Review</th>
+                <th>Posted at</th>
+                <th>User</th>
+            </tr>
+            {% for review in reviews %}
+            <tr>
+                <td><a href="/books/{{review.book.id}}">{{review.book.title}}</a></td>
+                <td>{{review.rating}}</td>
+                {% if review.user == user %}
+                <td>{{review.message}} <a href="books/delete/{{review.id}}">Delete</a></td>
+                {% else %}
+                <td>{{review.message}}</td>
+                {% endif %}
+                <td>{{review.created_at}}</td>
+                <td><a href="users/{{review.user.id}}">{{review.user.first_name}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div id="books_with_reviews">
+        <h3>Books with reviews:</h3>
+        <table class="table">
+                {% for review in reviews %}
+            <tr>
+                <td><a href="books/{{review.book.id}}" class="text-primary">{{review.book.title}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+
+    <title>The Wall</title>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <div class="upperleft">
+                <h3>CodingDojo Wall</h3>
+            </div>
+            <div class="welcome">
+                <h4>Welcome {{ user.first }}!</h4>
+            </div>
+            <div class="upperright">
+                <a href="/login/logout">Log Out</a>
+            </div>
+        </div>
+
+        <div class="body">
+            <form action="/wall/postMessage" method="POST">
+                {% csrf_token %}
+                <h4>Post a message.</h4>
+                <input type="text" name="message" class="box">
+                <div class="button">
+                        <input type="submit", value="Post">
+                    </div>
+            </form>
+            <div class="scrollwindow">
+                    <p>{{ m.user }}</p>
+                    <p>{{ m.comments }}</p>
+                    <p>{{ m.created }}</p>
+                 
+            </div>
+        </div>
+
+        <div class="rightside">
+           
+        </div>
+
+        <div class="foot">
+            <h3>Foot Section</h3>
+        </div>
+    </div>
+    
+</body>
+</html>

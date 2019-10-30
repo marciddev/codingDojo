@@ -43,11 +43,14 @@ def login(request):
             messages.error(request, v)
         return redirect("/")
     else:
+        print("else")
         user = User.objects.filter(Email=request.POST["login_email"])
         if user:
+            print("if user")
             print("email in list")
             logged_user = user[0]
             if bcrypt.checkpw(request.POST["login_password"].encode(), logged_user.Password.encode()):
+                print("bcrypt checkpw")
                 print("password match! logging in...")
                 request.session["id"] = logged_user.id
                 return redirect("/books")

@@ -28,8 +28,10 @@
         {% for post in posts %}
         <ul>
             <li id="PostName">{{post.User.First_Name}} {{post.User.Last_Name}} :</li>
-            {% if post.User.id == request.session.id and now <= post.expired_at%}
+            {% if post.User.id == request.session.id and now.time <= post.expired_at.time %}
             <li><a href="/delete-post/{{post.id}}">Delete Post</a></li>
+            {% else %}
+            <li>Delete option expired</li>
             {% endif %}
             <ul>
                 <li id="PostMessage">{{post.message}}</li>

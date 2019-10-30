@@ -1,0 +1,220 @@
+<script>
+	var eeyore = 
+	{
+		character: "Eeyore",
+		greet: function() {
+			console.log("Greetings from eeyore!");
+		}
+	};
+	var Heffalumps = 
+	{
+		character: "Heffalumps",
+		greet: function() {
+			console.log("Greetings from heff!");
+		}
+	};
+	var Kanga = 
+	{
+		character: "Kanga",
+		greet: function() {
+			console.log("Greetings from kang!");
+		}
+	};
+	var chris = 
+	{
+		character: "Christopher Robin",
+		greet: function() {
+			console.log("Greetings from chris!");
+		}
+	};
+	var owl = 
+	{
+		character: "Owl",
+		greet: function() {
+			console.log("Greetings from owl!");
+		}
+	};
+	var rabbit = 
+	{
+		character: "Rabbit",
+		greet: function() {
+			console.log("Greetings from rabbit!");
+		}
+	};
+	var Gopher = 
+	{
+		character: "Gopher",
+		greet: function() {
+			console.log("Greetings from gopher!");
+		}
+	};
+	var Bees = 
+	{
+		character: "Bees",
+		greet: function() {
+			console.log("Greetings from bees!");
+		}
+	};
+	var winnie = 
+	{
+		character: "Whinnie the poo",
+		greet: function() {
+			console.log("Greetings from winnie!");
+		}
+	};
+	var piglet = 
+	{
+		character: "Piglet",
+		greet: function() {
+			console.log("Greetings from piglet!");
+		}
+	};
+	var tigger = 
+	{
+		character: "tigger",
+		greet: function() {
+			console.log("Greetings from tigger!");
+		}
+	}
+	eeyore.east = Heffalumps;
+	eeyore.south = Kanga;
+	Heffalumps.west = eeyore;
+	Kanga.north = eeyore;
+	Kanga.south = chris;
+	chris.north = Kanga;
+	chris.west = owl;
+	chris.east = rabbit;
+	chris.south = winnie;
+	owl.east = chris;
+	owl.south = piglet;
+	rabbit.west = chris;
+	rabbit.south = Bees;
+	rabbit.east = Gopher;
+	Gopher.west = rabbit;
+	piglet.north = owl;
+	piglet.east = winnie;
+	winnie.north = chris;
+	winnie.west = piglet;
+	winnie.east = Bees;
+	winnie.south = tigger;
+	Bees.north = rabbit;
+	Bees.west = winnie;
+	tigger.north = winnie;
+	var player = 
+	{
+		location: tigger,
+		honey: false
+	};
+	function move(str) {
+		if(str == "north") {
+			if(player.location.north == null) {
+				console.log("You may not go that way!"); 
+			} 
+			else
+			{
+				player.location = player.location.north;
+				console.log("You are now at " + player.location.character + "'s house");
+				console.log(player.location.greet());
+			}
+		}
+		else if(str=="east") {
+			if(player.location.east == null) {
+				console.log("You may not go that way!");
+			}
+			else
+			{
+				player.location = player.location.east;
+				console.log("You are now at " + player.location.character + "'s house");
+				console.log(player.location.greet());
+			}
+		}
+		else if(str=="west") {
+			if(player.location.west == null) {
+				console.log("You may not go that way!");
+			}
+			else
+			{
+				player.location = player.location.west;
+				console.log("You are now at " + player.location.character + "'s house");
+				console.log(player.location.greet());
+			}
+		}
+		else if(str == "south") {
+			if(player.location.south == null) {
+				console.log("You may not go that way!");
+			}
+			else
+			{
+				player.location = player.location.south;
+				console.log("You are now at " + player.location.character + "'s house");
+				console.log(player.location.greet());
+			}
+		}
+		else
+		{
+			console.log("Invalid input! please enter north, south, east, or west!");
+		}
+	}
+	function pickUp() {
+		if(player.location == Bees) {
+			player.honey = true;
+			console.log("You have picked up honey!");
+		} 
+		else
+		{
+			console.log("You are not at bees!");
+		}
+	}
+	function mission() {
+		arr = [
+			eeyore.character,Heffalumps.character,Kanga.character,owl.character,chris.character,rabbit.character,Gopher.character,piglet.character,winnie.character,tigger.character
+		]
+		return arr[Math.floor(Math.random() * 10)];
+	}
+	var loc = mission();
+	console.log("Your location to deliver the honey is " + loc);
+	function drop() {
+		if(player.location.character == loc) {
+			player.honey = false;
+		}
+	}
+</script>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+
+

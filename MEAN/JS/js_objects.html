@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jsObjects(arr) {
+            for(var i=0;i<arr.length;i++) {
+                console.log(arr[i].name, arr[i].cohort);
+            }
+        }
+        function challenge2(arr) {
+            console.log("EMPLOYEES")
+            var i;
+            for(var i in arr.employees) {
+                var empchar = arr.employees[i].first_name.length + arr.employees[i].last_name.length
+                console.log(arr.employees[i].first_name + " " + arr.employees[i].last_name + " " + empchar);
+            }
+            console.log("MANAGERS")
+            for(var i in arr.managers) {
+                var empchar2 = arr.managers[i].first_name.length + arr.managers[i].last_name.length
+                console.log(arr.managers[i].first_name + " " + arr.managers[i].last_name + " " + empchar2);
+            }
+        }
+    </script>
+    
+</body>
+</html>

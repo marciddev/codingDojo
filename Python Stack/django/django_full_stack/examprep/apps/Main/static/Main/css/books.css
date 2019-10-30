@@ -1,0 +1,9 @@
+#all_reviews {
+    width: 600px;
+    display: inline-block;
+}
+#books_with_reviews {
+    width: 400px;
+    display: inline-block;
+    margin-left: 250px;
+}

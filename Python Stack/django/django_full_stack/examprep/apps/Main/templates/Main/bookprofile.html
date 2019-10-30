@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Main/css/bookprofile.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="profile">
+        <h1>{{book.title}}</h1>
+        <h3>Author: {{book.author.first_name}} {{book.author.last_name}}</h3>
+        <table class="table">
+            <tr>
+                <th>Reviews</th>
+            </tr>
+            {% for review in book.reviews.all %}
+            <tr>
+                <td>Rating: {{review.rating}}</td>
+                <td><a href="users/{{review.user.id}}">{{review.user.first_name}}</a> says {{review.message}}</td>
+                <td>{{review.created_at}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div id="addreview">
+        <h3>Add a review:</h3>
+        <form action="/books/{{book.id}}/addview" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="add_review_text" value="yes">
+            <label for="textarea_add_review">Review: </label>
+            <textarea name="textarea_add_review" class="form-control"></textarea>
+            <label for="rating_to_add">Rating:</label>
+            <select class="form-control"name="rating_to_add">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <input style="margin-top: 20px !important;" type="submit"class="btn btn-primary"value="Submit Review">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -11,6 +11,7 @@ def wall(request):
         "comments": Comment.objects.all(),
         "now": datetime.now()
     }
+    print(context["now"])
     return render(request, "wall/index.html", context)
 def logoff(request):
     request.session.clear()
@@ -18,7 +19,8 @@ def logoff(request):
 def postmsg(request):
     if request.method == "POST":
         if request.POST['hide'] == "postmessage":
-            Post.objects.create(message=request.POST["post_message"], User=Users.objects.get(id=request.session['id']), expired_at = datetime.now())
+            n =Post.objects.create(message=request.POST["post_message"], User=Users.objects.get(id=request.session['id']),expired_at = datetime.now()+timedelta(minutes=30))
+            n.save()
             coppa = timedelta(minutes=30)
     return redirect("/wall")
 def commentmsg(request):
