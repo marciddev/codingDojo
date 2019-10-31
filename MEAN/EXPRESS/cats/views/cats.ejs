@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    img {
+        width: 500px;
+        height: 500px;
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <h1>Select a cat!</h1>
+    <% for (var cat of cats) {%>
+        <h3>Name: <%= cat.name %></h3>
+        <h3>Image:</h3>
+        <a href="/<%=cat.name%>">
+        <img src="<%= cat.image %>">
+        <% } %>
+        </a>
+</body>
+</html>
