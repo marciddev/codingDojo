@@ -1,0 +1,14 @@
+#fail {
+    width: 200px;
+    height: 200px;
+    color: white;
+    text-align: center;
+    background-color: red;
+}
+#success {
+    width: 200px;
+    height: 200px;
+    color: white;
+    text-align: center;
+    background-color: green;
+}
