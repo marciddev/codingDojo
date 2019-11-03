@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <style type='text/css'>
+        #button {
+            width: 300px;
+            height: 150px;
+            margin-left: 400px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id='red'class='btn'>Red!</button>
+    <button id='yellow'class='btn'>Yellow!</button>
+    <button id='blue' class='btn'>Blue!</button>
+    <script>
+        let normal;
+        $('#red').click(function(e) {
+            e.preventDefault();
+            socket = io();
+            socket.emit('red', {color: red});
+            console.log('emitted red');
+            socket.on('update_red', function(data) {
+                console.log('at update_red');
+                $('body').css('background-color', 'red');
+                normal = 'red';
+            })
+        })
+        $('#yellow').click(function(e) {
+            e.preventDefault();
+            socket = io();
+            socket.emit('yellow', {color: red});
+            console.log('emitted yellow');
+            socket.on('update_yellow', function(data) {
+                console.log('at update_yellow');
+                $('body').css('background-color', 'yellow');
+                normal = 'yellow';
+            })
+        })
+        $('#blue').click(function(e) {
+            e.preventDefault();
+            socket = io();
+            socket.emit('blue', {color: blue});
+            console.log('emitted blue');
+            socket.on('update_blue', function(data) {
+                console.log('at update_blue');
+                $('body').css('background-color', 'blue');
+                normal = 'blue';
+            })
+        })
+    </script>
+</body>
+
+</html>
