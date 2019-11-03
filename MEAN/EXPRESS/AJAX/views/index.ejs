@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css">
+        #bodyDiv {
+            width: 450px;
+            height: 450px;
+            border: 10px solid black;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="buttons">
+        <button id="cl">People</button>
+        <button id="cl2">Planets</button>
+        <button id="cl3">All People</button>
+    </div>
+    <div id="bodyDiv"></div>
+    <script>
+        let id = 1;
+        $(document).ready(function () {
+            $("#cl").click(function (e) { //slice id out of .next
+                e.preventDefault();
+                $.get(`peoplee${id}`, function (data) {
+                    $("#bodyDiv").html("");
+                    for (var i = 0; i < data.results.length - 1; i++) {
+                        $("#bodyDiv").append(`<p>${data.results[i].name}</p>`);
+                    }
+                    $("#buttons").append(
+                        `<button next=${data.next} id='nextbutton'>Next</button><button id='prevbutton'>Prev</button>`
+                    );
+                    console.log(data.next);
+                }, "json");
+
+            })
+            $(document).on("click", "#nextbutton", function (e) {
+                if (id + 1 < 10) {
+                    id++;
+                } else {
+                    console.log("no next!");
+                }
+                $.get(`/peoplee${id}`, function (data) {
+                    console.log(data);
+                    if (data.next == null) {
+                        console.log("no next!");
+                    } else {
+                        $("#bodyDiv").html("");
+                        for (var i = 0; i < data.results.length; i++) {
+                            $("#bodyDiv").append(`<p>${data.results[i].name}`);
+                        }
+                    }
+                })
+            })
+            $(document).on("click", "#prevbutton", function (e) {
+                e.preventDefault();
+                if (id - 1 > 0) {
+                    id--;
+                } else {
+                    console.log("no prev!*****");
+                }
+                $.get(`/peoplee${id}`, function (data) {
+                    console.log(data);
+                    $("#bodyDiv").html("");
+                    for (var i = 0; i < data.results.length; i++) {
+                        $("#bodyDiv").append(`<p>${data.results[i].name}`);
+
+                    }
+                })
+            })
+            $("#cl3").click(function() {
+                $("#bodyDiv").html("");
+                for(var i=1;i<10;i++) {
+                    $.get(`/peoplee${i}`, function(data) {
+                        for(var i=0;i<data.results.length;i++) {
+                            $("#bodyDiv").append(`<p>${data.results[i].name}`);
+                        }
+                    })
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
