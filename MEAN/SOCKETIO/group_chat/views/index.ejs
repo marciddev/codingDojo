@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Group Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <style type='text/css'>
+        #enter_name {
+            width: 300px;
+            height: 150px;
+            margin-left: 400px;
+            margin-top: 100px;
+            position: absolute;
+        }
+
+        #body {
+            width: 100%;
+            height: 900px;
+
+        }
+
+        #formchat {
+            width: 100%;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='enter_name'>
+        <form id='form'>
+            <div class='form-group'>
+                <label for='name'>Enter your name!</label>
+                <input type='text' name='name' id='name' class='form-control'>
+            </div>
+            <input class='btn btn-success' type='submit'>
+        </form>
+    </div>
+    <div id='body' class='bg-light'>
+        <form id='chat'>
+            <div class='form-group'>
+                <input type='text' class='form-control' name='msg' id='cmessage'>
+                <input type='submit' class='btn btn-primary' value='Send'>
+            </div>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            let users_thread = [];
+            let socket=io();
+            socket.on('updated_user', function(data) {
+                var name = data.user
+            })
+            socket.on('updated_message', function(data) {
+                message = data.msg;
+                $('#body').prepend(`<p>${name}: ${message}`);
+            })
+            $('#form').submit(function(e) {
+                console.log('inside of submit #form');
+                e.preventDefault();
+                socket.emit('new_user', {user: $('#name').val()});
+                $(this).slideToggle();
+            })
+            $('#chat').submit(function(e) {
+                e.preventDefault();
+                var message = $('#cmessage').val();
+                socket.emit('message', {msg: message});
+            }) 
+        })
+    </script>
+</body>
+
+</html>
