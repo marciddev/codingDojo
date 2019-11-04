@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Mongoose</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <style type='text/css'>
+    #container {
+        text-align: center;
+        margin-left: 10%;
+        margin-top: 10%;
+        width: 75%;
+    }
+    </style>
+</head>
+
+<body class='bg-light'>
+    <div id='container'>
+        <h1>Create new mongoose!</h1>
+        <form action='/mongooses' method='POST'>
+            <div class='form-group'>
+                <label for='name'>Name</label>
+                <input type='text' class='form-control' name='name'>
+            </div>
+            <div class='form-group'>
+                <label for='age'>Age</label>
+                <input type='number' class='form-control' name='age'>
+            </div>
+            <input type='submit' class='btn btn-primary'>
+        </form>
+    </div>
+
+</body>
+</html>
