@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    
+    <% if (messages.quotes_error) { %>
+    <% for (var x of messages.quotes_error) { %>
+    <p style='color: red;'><%= x %></p>
+    <% } %>
+    <% } %>
+    <h1>Quotes!</h1>
+    <form action="/" method="post">
+        <div class='form-group'>
+            <label for='name'>Name</label>
+            <input type='text' class='form-control' name='name'>
+        </div>
+        <div class='form-group'>
+            <label for='quote'>Quote</label>
+            <input type='text' class='form-control' name='quote'>
+        </div>
+        <input type='submit' class='btn btn-primary'>
+    </form>
+    <ul>
+        <% for (var i = 0; i < quotes.length; i++) {%>
+        <ul>
+            <li>Quote: "<%= quotes[i].quote %>"</li>
+            <ul>
+                <li>-<%= quotes[i].name %> at <%= quotes[i].created_at %></li>
+            </ul>
+        </ul>
+        <% } %>
+    </ul>
+</body>
+
+</html>
