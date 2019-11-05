@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type='text/css'>
+        h3 {
+            margin-left: 25px;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello!</h1>
+    <% if (messages.create_message) { %>
+    <% for (var x of messages.create_message) { %>
+    <h3 class='text-danger'><%= x %></h3>
+    <% } %>
+    <% } %>
+    <form id='invent_message' action='/create_message' method='post'>
+        <div class='form-group'>
+            <label for='name'>Name</label>
+            <input type="text" id='name' name="name" class='form-control'>
+        </div>
+        <div class='form-group'>
+            <label for='message'>Message</label>
+            <textarea id='message' class='form-control' name='message' rows='4' cols='50'></textarea>
+        </div>
+        <input type="submit" value="Post" class='btn btn-primary'>
+    </form>
+    <div id='messageswall'>
+        <% for (var i=messages.length-1;i>-1;i--) {%>
+        <h3>Name: <%= messages[i].name %></h3>
+        <h3>Message: <%= messages[i].message %></h3>
+        <ul>
+            <% for (var j=messages[i].comments.length-1;j > -1; j--) { %>
+            <li>
+                <h5><span class='text-success'>>>> </span>Name: <%= messages[i].comments[j].name %></h5>
+            </li>
+            <li>
+                <h5><span class='text-success'>>>> </span>Comment: <%= messages[i].comments[j].message %></h5>
+            </li>
+            <% } %>
+            <form id='comment_form' action='/create_comment/<%=messages[i].id%>' method='post'>
+                <div class='form-group'>
+                    <label for='name'>Name</label>
+                    <input id="cname" type='text' name='name' class='form-control'>
+                </div>
+                <div class='form-group'>
+                    <label for='message'>Comment</label>
+                    <textarea id="cmessage" class='form-control' rows='4' cols='50' name='message'></textarea>
+                </div>
+                <input type='submit' value='Comment' class='btn btn-success'>
+            </form>
+        </ul>
+        <% } %>
+    </div>
+    <script>
+        $('#invent_message').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/create_message',
+                method: 'post',
+                data: $(this).serialize(),
+                success: function (res) {
+                    $('#messageswall').prepend(res);
+                    $('#name').val('');
+                    $('#message').val('');
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+1.) Create message object (name: , Comment: )
+2.) Iterate through message objects to display on index.ejs
+3.) Have a form to create a message object on the page, use AJAX to submit it
+4.) Add a comment system, and at the bottom of all comments, a form to post a comment

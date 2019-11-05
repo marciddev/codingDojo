@@ -1,0 +1,20 @@
+<script>
+    function hashMap(cap) {
+        this.capacity = cap;
+        this.table = [];
+    }
+    // Use the below to hash a string:
+    var myString = "";
+    var myHashCode = myString.hashCode()
+    String.prototype.hashCode = function () {
+        var hash = 0;
+        if (this.length == 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            char = this.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash &= hash; //Convert to 32b int
+        }
+        return hash;
+    }
+    console.log(hashMap(5));
+</script>
