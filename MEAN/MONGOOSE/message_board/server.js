@@ -57,55 +57,59 @@ const Message = mongoose.model('Message', MessageSchema);
 
 app.get('/', (request, response) => {
     Message.find({})
-        .then(messages => {
-            console.log(messages);
+        .then(message_find => {
+            console.log(message_find);
             response.render('index', {
-                messages: messages
+                message: message_find
             });
         })
         .catch(err => {
             console.log(err);
         })
-    app.post('/create_message', (request, response) => {
-        Message.create(request.body)
-            .then(message => {
-                console.log(message);
-                response.render('message', {
-                    message: message
-                });
-            })
-            .catch(err => {
-                console.log(err + '****************************');
-                for (var key in err.errors) {
-                    request.flash('create_message', err.errors[key].message);
-                }
-                response.redirect('/');
-            })
-    })
-    app.post('/create_comment/:id', (request, response) => {
-        const id = request.params.id;
-        Comment.create(request.body)
-            .then(data => {
-                Message.findOneAndUpdate({
-                        _id: id
-                    }, {
-                        $push: {
-                            comments: data
-                        }
-                    })
-                    .then(data2 => {
-                        console.log(data2);
-                        response.redirect('/');
-                    })
-                    .catch(err2 => {
-                        console.log(err2);
-                    })
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    })
 })
+app.post('/create_message', (request, response) => {
+    Message.create(request.body)
+        .then(msg => {
+            console.log(msg);
+            msg.save();
+            response.redirect('/');
+        })
+        .catch(err => {
+            console.log(err);
+            for (var key in err.errors) {
+                request.flash('make_msg', err.errors[key].message);
+            }
+            response.redirect('/');
+        })
+})
+app.post('/create_comment/:id', (request, response) => {
+    const id = request.params.id;
+    Comment.create(request.body)
+        .then(data => {
+            Message.findOneAndUpdate({
+                    _id: id
+                }, {
+                    $push: {
+                        comments: data
+                    }
+                })
+                .then(data2 => {
+                    console.log(data2);
+                    response.redirect('/');
+                })
+                .catch(err2 => {
+                    console.log(err2);
+                })
+        })
+        .catch(err => {
+            console.log(err);
+            for (var key in err.errors) {
+                request.flash('make_comment', err.errors[key].message);
+            }
+            response.redirect('/');
+        })
+})
+
 
 
 

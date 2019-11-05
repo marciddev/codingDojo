@@ -22,10 +22,15 @@
 
 <body>
     <h1>Hello!</h1>
-    <% if (messages.create_message) { %>
-    <% for (var x of messages.create_message) { %>
-    <h3 class='text-danger'><%= x %></h3>
+    <% if(messages.make_msg) { %>
+        <% for (var x of messages.make_msg) { %>
+         <p class='text-danger'><%= x %></p>
+        <% } %>
     <% } %>
+    <% if(messages.make_comment) { %>
+        <% for (var x of messages.make_comment) { %>
+         <p class='text-danger'><%= x %></p>
+        <% } %>
     <% } %>
     <form id='invent_message' action='/create_message' method='post'>
         <div class='form-group'>
@@ -39,19 +44,19 @@
         <input type="submit" value="Post" class='btn btn-primary'>
     </form>
     <div id='messageswall'>
-        <% for (var i=messages.length-1;i>-1;i--) {%>
-        <h3>Name: <%= messages[i].name %></h3>
-        <h3>Message: <%= messages[i].message %></h3>
+        <% for (var i=message.length-1;i>-1;i--) {%>
+        <h3>Name: <%= message[i].name %></h3>
+        <h3>Message: <%= message[i].message %></h3>
         <ul>
-            <% for (var j=messages[i].comments.length-1;j > -1; j--) { %>
+            <% for (var j=message[i].comments.length-1;j > -1; j--) { %>
             <li>
-                <h5><span class='text-success'>>>> </span>Name: <%= messages[i].comments[j].name %></h5>
+                <h5 style='border-top: 1px solid gray;'><span class='text-success'>>>> </span>Name: <%= message[i].comments[j].name %></h5>
             </li>
             <li>
-                <h5><span class='text-success'>>>> </span>Comment: <%= messages[i].comments[j].message %></h5>
+                <h5 style='border-bottom: 1px solid gray;'><span class='text-success'>>>> </span>Comment: <%= message[i].comments[j].message %></h5>
             </li>
             <% } %>
-            <form id='comment_form' action='/create_comment/<%=messages[i].id%>' method='post'>
+            <form id='comment_form' action='/create_comment/<%=message[i].id%>' method='post'>
                 <div class='form-group'>
                     <label for='name'>Name</label>
                     <input id="cname" type='text' name='name' class='form-control'>
@@ -66,19 +71,6 @@
         <% } %>
     </div>
     <script>
-        $('#invent_message').submit(function (e) {
-            e.preventDefault();
-            $.ajax({
-                url: '/create_message',
-                method: 'post',
-                data: $(this).serialize(),
-                success: function (res) {
-                    $('#messageswall').prepend(res);
-                    $('#name').val('');
-                    $('#message').val('');
-                }
-            })
-        })
     </script>
 </body>
 
