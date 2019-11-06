@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <style>
+        #title {
+            text-align: center;
+        }
+
+        .secret_container {
+            width: 600px;
+            height: 300px;
+            border: 1px solid gray;
+            margin-left: 31%;
+            margin-top: 100px;
+            display: inline-block;
+            box-shadow: 1px 1px 3px;
+        }
+
+        .create_secret_container {
+            width: 500px;
+            height: 200px;
+            display: inline-block;
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+        .secret_container:first-of-type .create_secret_container h5 {
+            border-bottom: 1px solid orange;
+        }
+
+        .secret_container:nth-of-type(2) h5 {
+            text-align: center;
+            box-shadow: 1px 1px 4px;
+        }
+
+        .form-group {
+            margin-top: 30px;
+        }
+
+        .navbar-brand:first-of-type {
+            text-decoration: none;
+            color: white !important;
+        }
+
+        #title {
+            margin-top: 20px;
+        }
+
+        .secret_container {
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">Welcome, <%= logged_user.first_name %>!</a>
+        <a class="navbar-brand" href="/logout">Logout</a>
+    </nav>
+    <h1 id='title'>Dojo Secrets</h1>
+    <div class="secret_container">
+        <% if(messages.secret_creation) { %>
+        <% for(var j of messages.secret_creation) {%>
+        <p style='color: red;'><%= j %></p>
+        <% } %>
+        <% } %>
+        <div class='create_secret_container'>
+            <h5>Create a secret</h5>
+            <form action="/create_secret" method="POST">
+                <div class="form-group">
+                    <label for="secret_name">Secret</label>
+                    <input type="text" class="form-control" name="secret_name">
+                </div>
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    <div class="secret_container">
+        <h5 class='bg-light'>All secrets</h5>
+        <div class='create_secret_container'>
+            <table class='table '>
+                <% for (var i of allsecrets) {%>
+                <tr>
+                    <td><%= i.secret %> <a href='/secret/<%= i._id %>'>View</a>
+                        <% for(var j of logged_user.secrets) { %>
+                        <% if(JSON.stringify(i) == JSON.stringify(j)) {%>
+                        <a href="secret/delete/<%=i._id%>" class="text-danger">Delete</a>
+                        <% } %>
+                        <% } %>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
