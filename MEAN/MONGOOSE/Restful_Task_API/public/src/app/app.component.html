@@ -1,8 +1,14 @@
-<h1>All tasks: </h1>
-<div id='loop'*ngFor="let x of tasks">
-    <h1>{{x.title}} - {{x.description}}</h1>
-</div>
-<h1>Third task: </h1>
-<div id='loop2'>
-  <h1>{{tasks[2].title}} - {{tasks[2].description}}</h1>
-</div>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <button (click) = "onAllTasksClick()" class='btn btn-primary'>Click Me</button>
+  <div *ngIf="all_tasks">
+    <ul *ngFor="let x of all_tasks">
+      <li>{{x.title}}</li>
+      <button (click) = "onOneTaskClick(x._id)"class='btn btn-success'style='display: inline-block;'>SHOW</button>
+    </ul>
+  </div>  
+  <div *ngIf = "taskProfile">
+    <p>{{taskProfile[0].title}} - {{taskProfile[0].description}}</p>
+  </div>
+

@@ -10,4 +10,13 @@ export class HttpService {
   getTasks() {
     return this._http.get('/tasks');
   }
+  postToServer(d) {
+    return this._http.post('/tasks', d);
+  }
+  getAllTasks() {
+    return this._http.get('/tasks');
+  }
+  getOneTask(id) {
+    return this._http.get(`/tasks/${id}`)
+  }
 }

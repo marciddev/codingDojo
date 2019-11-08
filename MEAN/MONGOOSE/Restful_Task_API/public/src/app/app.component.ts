@@ -9,6 +9,8 @@ import { HttpService } from './http.service'
 export class AppComponent implements OnInit {
   title : String;
   tasks = [];
+  all_tasks;
+  taskProfile;
   constructor(private _httpService: HttpService) {
     
   }
@@ -23,6 +25,26 @@ export class AppComponent implements OnInit {
       for(var x in data) {
         this.tasks.push({title: data[x].title, description: data[x].description})
       }
+    })
+  }
+  onButtonClickParam():void {
+    let observable = this._httpService.postToServer({title: "hello"});
+    observable.subscribe(data => {
+      console.log("Got our data!", data)
+    });
+  }
+  onAllTasksClick(): void {
+    let observe = this._httpService.getAllTasks();
+    observe.subscribe(data => {
+      this.all_tasks = data;
+      console.log(data);
+    })
+  }
+  onOneTaskClick(id): void {
+    let observe = this._httpService.getOneTask(id);
+    observe.subscribe(data => {
+      this.taskProfile = data;
+      console.log(data);
     })
   }
 }

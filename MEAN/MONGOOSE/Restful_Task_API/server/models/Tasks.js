@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const TaskSchema = new mongoose.Schema({
-    title: String,
-    description: {type: String, default: ''},
+    title: {type: String, default: 'default_title'},
+    description: {type: String, default: 'default_desc'},
     completed: {type: Boolean, default: false},
     created_at: {type: Date, default: Date.now()},
     updated_at: {type: Date, default: Date.now()}
