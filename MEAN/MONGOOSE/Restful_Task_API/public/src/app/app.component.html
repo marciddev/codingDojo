@@ -1,14 +1,18 @@
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <button (click) = "onAllTasksClick()" class='btn btn-primary'>Click Me</button>
-  <div *ngIf="all_tasks">
-    <ul *ngFor="let x of all_tasks">
-      <li>{{x.title}}</li>
-      <button (click) = "onOneTaskClick(x._id)"class='btn btn-success'style='display: inline-block;'>SHOW</button>
-    </ul>
-  </div>  
-  <div *ngIf = "taskProfile">
-    <p>{{taskProfile[0].title}} - {{taskProfile[0].description}}</p>
+<form (submit)="onSubmit()" method='post'>
+  <!-- use the json pipe to see how newTask changes in real time -->
+  <p> {{ newTask | json }} </p>
+  <input type="text" name="title" [(ngModel)]="newTask.title" />
+  <input type="text" name="description" [(ngModel)]="newTask.description" />
+  <input type="submit" name="submit" value="Create Task" />
+</form>
+<div *ngFor="let task of all_tasks">
+  <p>{{task.title}} -- {{task.description}} <button (click)="deleteTask(task._id)">Delete</button><button
+      (click)="editT()">Edit</button></p>
+  <div *ngIf="edit == true">
+    <form (submit)="onEdit(task._id)" method="PUT">
+      <input type="text" name="title" [(ngModel)]="editTaskTemplate.title" />
+      <input type="text" name="description" [(ngModel)]="editTaskTemplate.description" />
+      <input type="submit" name="submit" value="Edit Task" />
+    </form>
   </div>
-
+</div>

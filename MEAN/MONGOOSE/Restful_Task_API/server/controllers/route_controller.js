@@ -22,9 +22,12 @@ module.exports = {
           })
     },
     make_task: (request, response) => {
+        console.log("inside make task");
         Task.create(request.body)
           .then(data => {
+              console.log("inside .then of make task");
               data.save();
+              console.log("saved data");
               response.json(data);
           })
           .catch(err => {
@@ -50,5 +53,5 @@ module.exports = {
           .catch(err => {
               console.log(err);
           })
-    }
+    },
 }
