@@ -1,0 +1,24 @@
+SET  UP AN ANGULAR PROJECT
+
+
+
+1.) ng new <name>
+2.) ng build --watch
+3.) create a service
+type in console: ng g s http
+4.) register the service 
+in app.module.ts: import { HttpService } from './http.service'
+add HttpService to providers
+import { HttpClientModule } from '@angular/common/http'
+add HttpClientModule to imports array
+5.) dependency injection
+in http.service.ts: import { HttpClient } from '@angular/common/http'
+add constructor(private _http: HttpClient) {} to export HttpService statement
+in app.component.ts: import { HttpService } from './http.service'
+in AppComponent export add constructor(private _httpService: HttpService) {}
+6. fetch data from the database
+(http.service.ts)
+inside function: 
+in http.service.ts: let tempObservable = this._http.get('/tasks');
+tempObservable.subscribe(data => cLog('got our tasks!', data));
+then call the functions in the constructor 

@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+  #topHalf {
+    height: 50%;
+    width: 40%;
+    display: inline-block;
+  }
+
+  form {
+    margin-left: 100px;
+    width: 25%;
+    display: inline-block;
+  }
+
+  h1 {
+    margin-left: 200px;
+  }
+
+  img {
+    display: inline-block;
+  }
+
+  #images {
+    display: block;
+    width: 400px;
+    padding-bottom : 50px;
+  }
+  #image_cont {
+    height: 320px;
+    width: 40%;
+    display: inline-block;
+    overflow-y: auto;
+    margin-top: 25px;
+  }
+
+</style>
+<div id="topHalf">
+  <h1>Rate My Cakes</h1>
+  <form method="POST"(submit)="onCakeSubmit()">
+    {{ newCake | json }}
+    <div class="form-group">
+      <label for="baker">Baker's Name</label>
+      <input type="text" class="form-control" name="baker" [(ngModel)] = "newCake.baker">
+    </div>
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="text" class="form-control" name="image" [(ngModel)] = newCake.image>
+    </div>
+    <input type="submit" class="btn btn-primary">
+  </form>
+</div>
+<div id="image_cont">
+  <div id="images" *ngFor="let cake of allcakes">
+    <img [src]="cake.image" (click)="imageClick(cake._id)">
+      <form method="POST" (submit) = "onReviewSubmit(cake._id)">
+        {{ newReview | json }}
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <input type="number" name="rating" [(ngModel)] = "newReview.rating">
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <input type="text" name="comment" [(ngModel)] = "newReview.comment">
+        </div>
+        <input type="submit" class="btn btn-primary">
+      </form>
+  </div>
+</div>
+<app-cake-details [cake_info]="cakeProfile"></app-cake-details>

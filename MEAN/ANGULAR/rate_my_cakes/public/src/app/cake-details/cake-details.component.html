@@ -1,0 +1,13 @@
+<style>
+    #reivews {
+        display: inline-block;
+    }
+</style>
+<div *ngIf="cake_info"><img [src]='cake_info[0].image'>
+    <h1>Reviews:</h1>
+    <div *ngFor="let r of cake_info[0].reviews" id='reviews'>
+        <h4><strong>Rating: </strong>{{r.rating}}</h4>
+        <h4><strong>Comment: </strong>{{r.comment}}</h4>
+    </div>
+</div>
+<script>console.log(cake_info);</script>
