@@ -16,3 +16,9 @@
     </form>
   </div>
 </div>
+<div *ngFor="let t of all_tasks">
+  <ul>
+    <li>{{t.title}} <button (click)="onOneTaskClick(t._id)">View</button></li>
+  </ul>
+</div>
+<app-tasks-component [taskToShow]="taskProfile"></app-tasks-component>
