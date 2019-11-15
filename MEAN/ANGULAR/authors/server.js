@@ -20,48 +20,72 @@ const authorSchema = new mongoose.Schema({
 const Author = new mongoose.model('Author', authorSchema);
 
 app.get('/api', (request, response) => {
-console.log("inside of app.get('/')");
+    console.log("inside of app.get('/')");
     Author.find({})
-    .then(data => {
-        console.log("inside of .then(data)");
-        console.log(data);
-        response.json(data);
-    })
-    .catch(err => {
-        console.log(err);
-    })
+        .then(data => {
+            console.log("inside of .then(data)");
+            console.log(data);
+            response.json(data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 })
 app.delete('/api/delete/:id', (request, response) => {
     console.log("inside of deleete");
-    Author.deleteOne({_id: request.params.id})
-      .then(data => {
-          response.json(data);
-      })
-      .catch(err => {
-          response.json(data);
-          console.log(err);
-      })
+    Author.deleteOne({
+            _id: request.params.id
+        })
+        .then(data => {
+            response.json(data);
+        })
+        .catch(err => {
+            response.json(data);
+            console.log(err);
+        })
 })
 app.post('/api', (request, response) => {
     console.log("inside of post api before promise");
     Author.create(request.body)
-      .then(data => {
-          console.log("inside of post api");
-          console.log(data);
-          response.json(data);
-      })
-      .catch(err => {
-          console.log(err);
-      })
+        .then(data => {
+            console.log("inside of post api");
+            console.log(data);
+            response.json({
+                data: data,
+                status: true
+            });
+        })
+        .catch(err => {
+            let errorsarr = [];
+            for (var x in err.errors) {
+                errorsarr.push(err.errors[x].message);
+            }
+            response.json({
+                status: false,
+                errors: errorsarr
+            })
+        })
 })
 app.put('/edit/:id', (request, response) => {
-    Author.findOneAndUpdate({_id: request.params.id}, request.body)
-      .then(data => {
-          response.json(data);
-      })
-      .catch(err => {
-          console.log(err);
-      })
+    Author.findOneAndUpdate({
+            _id: request.params.id
+        }, request.body, {runValidators: true})
+        .then(data => {
+            response.json({
+                status: true,
+                data: data
+            });
+        })
+        .catch(err => {
+            let errorsarr = [];
+            for (var x in err.errors) {
+                errorsarr.push(err.errors[x].message);
+            }
+            response.json({
+                status: false,
+                errors: errorsarr
+            })
+        })
 })
 app.all('*', (request, response, next) => {
     console.log("inside of response.sendFile");

@@ -9,6 +9,11 @@
         <td><button (click) = "showEditForm(x)" class="btn btn-success">Edit</button> | <button (click) = "deleteAuthor(x._id)" class="btn btn-danger">Delete</button></td>
     </tr>
 </table> 
+<div *ngIf="onCreateErrors">
+    <div *ngFor="let x of onCreateErrors">
+        <p style="color: red; font-weight: bold;">{{x}}</p>
+    </div>
+</div>
 <h1>Create an author</h1>
 <form (submit) = "submitAuthor()">
     <div class="form-group">
@@ -18,9 +23,13 @@
     <input type="submit" class="btn btn-primary">
 </form>
 <div *ngIf="showEdit">
+    <div *ngIf="onUpdateErrors">
+        <div *ngFor="let x of onUpdateErrors">
+            <p style="color: red; font-weight: bold;">{{x}}</p>
+        </div>
+    </div>
     <h1>Edit an author</h1>
     <form (submit) = "updateForm()">
-        {{editInput | json }}
         <div class="form-group">
             <label>Name</label>
             <input type="text"name="name"class="form-control" [(ngModel)]="editInput.name">
