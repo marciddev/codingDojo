@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let x of allAuthors">
+        <td>{{x.name}}</td>
+        <td><button (click) = "showEditForm(x)" class="btn btn-success">Edit</button> | <button (click) = "deleteAuthor(x._id)" class="btn btn-danger">Delete</button></td>
+    </tr>
+</table> 
+<h1>Create an author</h1>
+<form (submit) = "submitAuthor()">
+    <div class="form-group">
+        <label>Author's Name</label>
+        <input type="text"class="form-control"name="name" [(ngModel)] = "input.name">
+    </div>
+    <input type="submit" class="btn btn-primary">
+</form>
+<div *ngIf="showEdit">
+    <h1>Edit an author</h1>
+    <form (submit) = "updateForm()">
+        {{editInput | json }}
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text"name="name"class="form-control" [(ngModel)]="editInput.name">
+        </div>
+        <input type="submit"class="btn btn-primary">
+    </form>
+</div>
