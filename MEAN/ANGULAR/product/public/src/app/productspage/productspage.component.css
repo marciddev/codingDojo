@@ -1,0 +1,7 @@
+.products {
+    border: 1px solid black;
+    width: 200px;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
+}

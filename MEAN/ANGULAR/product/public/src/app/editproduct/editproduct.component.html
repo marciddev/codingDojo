@@ -1,0 +1,21 @@
+<div *ngIf="errors">
+  <ul *ngFor="let x of errors">
+    <li style='color: red; font-style: italic;'>{{x}}</li>
+  </ul>
+</div>
+<form (submit)="editProduct()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name"[(ngModel)]="editInfo.name">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="number" class="form-control" name="price" [(ngModel)]="editInfo.price">
+  </div>
+  <div class="form-group">
+    <label>Image(optional)</label>
+    <input type="text" name="image" class="form-control" [(ngModel)]="editInfo.image">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Edit!">
+  <button type="button"class="btn btn-danger" (click)="deleteProduct()">Delete</button>
+</form>

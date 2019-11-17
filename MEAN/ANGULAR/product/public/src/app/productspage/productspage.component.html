@@ -1,0 +1,9 @@
+<h2>Here are all of the products!</h2>
+<div *ngFor="let x of products" class="products">
+    <h5>{{x.name}}</h5>
+    <h5 class="text-success">${{x.price}}</h5>
+    <img *ngIf="x.image" [src]="x.image">
+    <button class="btn btn-success" [routerLink] = "['edit', x._id]">Edit</button>
+    <button (click) = "removeProduct(x._id)"class="btn btn-danger">Delete</button>
+</div>
+<router-outlet></router-outlet>
