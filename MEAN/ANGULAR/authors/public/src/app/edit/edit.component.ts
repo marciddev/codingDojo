@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { HttpService } from './../http.service';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _httpService: HttpService) { }
 
   ngOnInit() {
   }

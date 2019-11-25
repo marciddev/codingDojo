@@ -1,0 +1,18 @@
+<h1>Edit Restauraunt</h1>
+<div *ngIf="errors">
+    <div *ngFor = "let x of errors">
+        <p style='color: red;'>{{x}}</p>
+    </div>
+</div>
+<form (submit) = "update(formStuff[0]._id, {name: formStuff[0].name, cuisine: formStuff[0].cuisine})">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text"class="form-control"name="name"[(ngModel)] = "formStuff[0].name">
+    </div>
+    <div class="form-group">
+        <label>Cuisine</label>
+        <input type="text"class="form-control"name="cuisine" [(ngModel)]= "formStuff[0].cuisine">
+    </div>
+    <input type="submit"class = "btn btn-success">
+    <button type="button"class="btn btn-danger" (click)="trigger()">Cancel</button>
+</form>

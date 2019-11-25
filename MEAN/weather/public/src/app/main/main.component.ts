@@ -18,10 +18,8 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.city = {city: ''}
     this._route.params.subscribe((params: Params) => {
-      console.log(params['id']);
       let observe = this._httpService.grabCity(params['id']);
       observe.subscribe(data => {
-        console.log(data);
         this.city = data;
       })
     })
@@ -32,7 +30,6 @@ export class MainComponent implements OnInit {
     console.log(name);
     console.log("inside observer before subscribe");
     observer.subscribe(data => {
-      console.log(data);
       this.city= {city: ''};
     })
   }

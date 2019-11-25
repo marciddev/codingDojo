@@ -1,0 +1,14 @@
+<h1>All reviews</h1>
+<button class="btn btn-success" [routerLink] = "['review']">Create Review</button>
+<table class="table">
+    <tr>
+        <th>Customer</th>
+        <th>Stars</th>
+        <th>Description</th>
+    </tr>
+    <tr *ngFor="let x of profile">
+        <td>{{x.name}}</td>
+        <td>{{x.stars}}</td>
+        <td>{{x.description}}</td>
+    </tr>
+</table>

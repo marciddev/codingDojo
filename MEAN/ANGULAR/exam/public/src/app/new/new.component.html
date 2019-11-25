@@ -1,0 +1,23 @@
+<h1>Register a restauraunt</h1>
+<div>
+  <div *ngIf="errors">
+    <div *ngFor="let x of errors">
+      <p class="text-danger">{{x}}</p>
+    </div>
+  </div>
+  <div *ngIf="exists == false">
+      <p class="text-danger">Name already exists</p>
+  </div>
+  <form (submit) = "submitForm()">
+    <div class="form-group">
+      <label>Restauraunt name: </label>
+      <input type='text' name='name' class='form-control' [(ngModel)]="formData.name">
+    </div>
+    <div class="form-group">
+      <label>Cuisine: </label>
+      <input type="text" name="cuisine" class="form-control"[(ngModel)]="formData.cuisine">
+    </div>
+    <input type="submit" class="btn btn-success" value="Create!">
+    <button type="button"class="btn btn-danger"[routerLink]="['/restauraunts']">Cancel</button>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+#chatbox {
+    background-image: url('./fall_650x350.jpg');
+    width: 80%;
+    align-self: center;
+    margin-left: 150px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px;
+    height: 750px;
+    overflow-y: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#inputbox {
+    width: 80%;
+    margin-left: 150px;
+    background-color: lightgray;
+    border: 1px solid black;
+    height: 200px;
+    box-shadow: 1px 1px 1px;
+}
+button {
+    margin-left: 500px;
+}
+label {
+    font-weight: bold !important;
+}
+p {
+    font-size: 25px;
+}

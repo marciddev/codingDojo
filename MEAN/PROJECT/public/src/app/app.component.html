@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<h1>Users online: {{online}}</h1>
+<div id="bg"></div>
+<div id="chatbox">
+    <p *ngFor="let x of messages" style="color: white;">
+        Anonymous user: {{x}}
+    </p>
+</div>
+<div id="inputbox">
+<form (submit) = "submit()">
+    <div class="form-group">
+        <label style="text-align: center;">Message</label>
+        <input type="text"class="form-control"name="msg"[(ngModel)]="message.msg">
+    </div>
+    <input type="submit"class="btn btn-success">
+</form>
+</div>

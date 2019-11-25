@@ -1,0 +1,17 @@
+<button class="btn btn-primary" [routerLink] = "['new']">New restauraunt</button>
+<table class="table">
+    <tr>
+        <th>Restauraunt</th>
+        <th>Cuisine</th>
+        <th>Actions Available</th>
+    </tr>
+    <tr *ngFor="let x of all">
+        <td>{{x.name}}</td>
+        <td>{{x.cuisine}}</td>
+        <td><button class="btn btn-primary" [routerLink] = "['/reviews/', x._id]">Read reviews</button> <button (click)="showEdit(x._id)"class="btn btn-primary">Update</button> <button *ngIf="delete"class="btn btn-danger" (click)="delete(x._id)" class="btn btn-primary">Delete</button></td>
+    </tr>
+</table>
+<div *ngIf="edit">
+
+    <app-edit [formStuff]="editData" (hideForm)="hideEdit()"></app-edit>
+</div>

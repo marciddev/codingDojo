@@ -1,0 +1,13 @@
+<h1>What is the coding dojo wifi password? </h1>
+<div id="form">
+    <div class="form-group">
+        <input type="password"name="pass"placeholder="Coding Dojo Wifi Password..." class="form-control" [(ngModel)]="pass">
+        <button (click) = onSubmit(pass) class="btn btn-success">Submit</button>
+    </div>
+</div>
+<div *ngIf="correct">
+    <h1>{{correct}}</h1>
+</div>
+<div *ngIf="!correct">
+    <h1>{{correct}}</h1>
+</div>

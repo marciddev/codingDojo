@@ -31,4 +31,7 @@ export class HttpService {
     console.log("in edittask");
     return this._http.put(`/tasks/${task1}`, task2);
   }
+  createTask(body) {
+    return this._http.post("/tasks/new", body);
+  }
 }
