@@ -1,0 +1,11 @@
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\bin\Debug\netcoreapp2.2\Collections.deps.json
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\bin\Debug\netcoreapp2.2\Collections.runtimeconfig.json
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\bin\Debug\netcoreapp2.2\Collections.runtimeconfig.dev.json
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\bin\Debug\netcoreapp2.2\Collections.dll
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\bin\Debug\netcoreapp2.2\Collections.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\obj\Debug\netcoreapp2.2\Collections.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\obj\Debug\netcoreapp2.2\Collections.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\obj\Debug\netcoreapp2.2\Collections.AssemblyInfoInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\obj\Debug\netcoreapp2.2\Collections.AssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\obj\Debug\netcoreapp2.2\Collections.dll
+C:\Users\kevin\Desktop\codingDojo\C#\Collections\obj\Debug\netcoreapp2.2\Collections.pdb
