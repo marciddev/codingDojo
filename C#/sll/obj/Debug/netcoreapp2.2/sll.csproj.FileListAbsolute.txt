@@ -1,0 +1,11 @@
+C:\Users\kevin\Desktop\codingDojo\C#\sll\obj\Debug\netcoreapp2.2\sll.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\codingDojo\C#\sll\obj\Debug\netcoreapp2.2\sll.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\sll\obj\Debug\netcoreapp2.2\sll.AssemblyInfoInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\sll\obj\Debug\netcoreapp2.2\sll.AssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\sll\bin\Debug\netcoreapp2.2\sll.deps.json
+C:\Users\kevin\Desktop\codingDojo\C#\sll\bin\Debug\netcoreapp2.2\sll.runtimeconfig.json
+C:\Users\kevin\Desktop\codingDojo\C#\sll\bin\Debug\netcoreapp2.2\sll.runtimeconfig.dev.json
+C:\Users\kevin\Desktop\codingDojo\C#\sll\bin\Debug\netcoreapp2.2\sll.dll
+C:\Users\kevin\Desktop\codingDojo\C#\sll\bin\Debug\netcoreapp2.2\sll.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\sll\obj\Debug\netcoreapp2.2\sll.dll
+C:\Users\kevin\Desktop\codingDojo\C#\sll\obj\Debug\netcoreapp2.2\sll.pdb
