@@ -1,0 +1,11 @@
+C:\Users\kevin\Desktop\codingDojo\C#\iron\bin\Debug\netcoreapp2.2\iron.deps.json
+C:\Users\kevin\Desktop\codingDojo\C#\iron\bin\Debug\netcoreapp2.2\iron.runtimeconfig.json
+C:\Users\kevin\Desktop\codingDojo\C#\iron\bin\Debug\netcoreapp2.2\iron.runtimeconfig.dev.json
+C:\Users\kevin\Desktop\codingDojo\C#\iron\bin\Debug\netcoreapp2.2\iron.dll
+C:\Users\kevin\Desktop\codingDojo\C#\iron\bin\Debug\netcoreapp2.2\iron.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\iron\obj\Debug\netcoreapp2.2\iron.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\codingDojo\C#\iron\obj\Debug\netcoreapp2.2\iron.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\iron\obj\Debug\netcoreapp2.2\iron.AssemblyInfoInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\iron\obj\Debug\netcoreapp2.2\iron.AssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\iron\obj\Debug\netcoreapp2.2\iron.dll
+C:\Users\kevin\Desktop\codingDojo\C#\iron\obj\Debug\netcoreapp2.2\iron.pdb
