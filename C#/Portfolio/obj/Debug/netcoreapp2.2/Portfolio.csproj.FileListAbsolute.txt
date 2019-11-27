@@ -12,3 +12,15 @@ C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio
 C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.RazorTargetAssemblyInfo.cache
 C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.dll
 C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\bin\Debug\netcoreapp2.2\Portfolio.Views.dll
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\bin\Debug\netcoreapp2.2\Portfolio.Views.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.TagHelpers.input.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.TagHelpers.output.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.RazorCoreGenerate.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.RazorTargetAssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.Views.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.csproj.CopyComplete
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Razor\Views\Shared\navbar.g.cshtml.cs
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Razor\Views\Home\Projects.g.cshtml.cs
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Razor\Views\Home\Contact.g.cshtml.cs

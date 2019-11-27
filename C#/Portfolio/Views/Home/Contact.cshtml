@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="~/css/contact.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar bg-light">
+        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/projects">Projects</a>
+        <a class="navbar-brand text-successs">Contact</a>
+    </nav>
+    <div id="wrapper">
+        <h1 id="hover">Contact Me!</h1>
+        <form action="/" method="GET">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea rows=5 cols=5 class="form-control"></textarea>
+            </div>
+            <button id="hover2" type="submit" href="/" class="btn btn-success">Send</button>
+        </form>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $("#hover").hover(function() {
+            $(this).append("<h1 style='color: blue;'>Please Contact Meeeeeeeeeeeee</h1>");
+        }, function() {
+            $(this).html("<h1>Contact Me!</h1>");
+        })
+        $("#hover2").hover(function() {
+            $(this).append("<h1 style='color: blue;'>Just one click away!!</h1>");
+        }, function() {
+            $(this).html("<button class='btn btn-success'>Send</button>");
+        })
+    })
+</script>
+</html>

@@ -2959,6 +2959,27 @@
     "CSharpLanguageVersion": 703
   },
   "RootNamespace": "Portfolio",
-  "Documents": [],
+  "Documents": [
+    {
+      "FilePath": "c:\\Users\\kevin\\Desktop\\codingDojo\\C#\\Portfolio\\Views\\Home\\Contact.cshtml",
+      "TargetPath": "Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Desktop\\codingDojo\\C#\\Portfolio\\Views\\Home\\Projects.cshtml",
+      "TargetPath": "Views\\Home\\Projects.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Desktop\\codingDojo\\C#\\Portfolio\\Views\\Shared\\navbar.cshtml",
+      "TargetPath": "Views\\Shared\\navbar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\kevin\\Desktop\\codingDojo\\C#\\Portfolio\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
   "SerializationFormat": "0.2"
 }

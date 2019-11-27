@@ -1,0 +1,16 @@
+.about {
+    text-align: center;
+    margin-top: 100px !important;
+}
+.about h1 {
+    margin-bottom: 50px;
+}
+#imgg {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    background-image: url('../images/FED.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+}
