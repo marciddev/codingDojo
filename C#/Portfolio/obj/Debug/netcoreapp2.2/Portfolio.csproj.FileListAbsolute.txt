@@ -1,0 +1,14 @@
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\bin\Debug\netcoreapp2.2\Portfolio.deps.json
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\bin\Debug\netcoreapp2.2\Portfolio.runtimeconfig.json
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\bin\Debug\netcoreapp2.2\Portfolio.runtimeconfig.dev.json
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\bin\Debug\netcoreapp2.2\Portfolio.dll
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\bin\Debug\netcoreapp2.2\Portfolio.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.RazorAssemblyInfo.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.RazorAssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.AssemblyInfoInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.AssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.RazorTargetAssemblyInfo.cache
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.dll
+C:\Users\kevin\Desktop\codingDojo\C#\Portfolio\obj\Debug\netcoreapp2.2\Portfolio.pdb

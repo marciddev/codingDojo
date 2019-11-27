@@ -1,0 +1,14 @@
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\bin\Debug\netcoreapp2.2\TestProj.deps.json
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\bin\Debug\netcoreapp2.2\TestProj.runtimeconfig.json
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\bin\Debug\netcoreapp2.2\TestProj.runtimeconfig.dev.json
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\bin\Debug\netcoreapp2.2\TestProj.dll
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\bin\Debug\netcoreapp2.2\TestProj.pdb
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.RazorAssemblyInfo.cache
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.RazorAssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.AssemblyInfoInputs.cache
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.AssemblyInfo.cs
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.RazorTargetAssemblyInfo.cache
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.dll
+C:\Users\kevin\Desktop\codingDojo\C#\TestProj\obj\Debug\netcoreapp2.2\TestProj.pdb
