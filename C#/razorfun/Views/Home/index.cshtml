@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Razor Fun</title>
+</head>
+<body>
+    @{
+        string[] arr = new string[] {
+            "Hello", "Coding", "Dojo", "Tulsa"
+        };
+        foreach(string s in arr) {
+            if(s.StartsWith("C")) {
+                <p style='color: red;'>@s</p>
+            } else {
+                <p>@s</p>
+            }
+        }
+    }
+</body>
+</html>
