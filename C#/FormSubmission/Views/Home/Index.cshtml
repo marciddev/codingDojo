@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FormSubmission</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    @model FormSubmission.Models.User
+    <form asp-action="Submit"asp-controller="Home" method="post">
+        <span asp-validation-for="firstName"></span>
+        <span asp-validation-for="lastName"></span>
+        <span asp-validation-for="email"></span>
+        <span asp-validation-for="age"></span>
+        <span asp-validation-for="password"></span>
+        <label asp-for="firstName"></label>
+        <input asp-for="firstName" type="text">
+        <label asp-for="lastName"></label>
+        <input asp-for="lastName" type="text">
+        <label asp-for="email"></label>
+        <input asp-for="email" type="email">
+        <label asp-for="age"></label>
+        <input asp-for="age" type="number">
+        <label asp-for="password"></label>
+        <input asp-for="password" type="password">
+        <input type="submit"value="plswrk">
+    </form>
+</body>
+
+</html>
