@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dojo Survey</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <form action="/submit"method="POST">
+    @model DojoSurvey2.Models.Survey
+    <form asp-action="Submit" asp-controller="Home"method="POST">
+        <span asp-validation-for="name"></span>
+        <span asp-validation-for="location"></span>
+        <span asp-validation-for="language"></span>
+        <span asp-validation-for="comment"></span>
         <label>Name: </label>
-        <input type="text"name="name">
+        <input asp-for="name">
         <label>Location: </label>
-        <select name="location">
+        <select asp-for="location">
             <option>San Jose</option>
             <option>Tulsa</option>
         </select>
         <label>Favorite Language:</label>
-        <select name="language">
+        <select asp-for="language">
             <option>C#</option>
             <option>JS</option>
             <option>Python</option>
         </select>
         <label>Comment(optional)</label>
-        <textarea name="comment"></textarea>
+        <textarea asp-for="comment"></textarea>
         <input type="submit">
     </form>
 </body>
