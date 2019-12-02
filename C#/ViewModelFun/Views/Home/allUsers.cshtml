@@ -1,0 +1,6 @@
+@using ViewModelFun.Models
+@model List<Person>
+
+@foreach(var p in Model) {
+    <h1>@p.FirstName @p.LastName </h1>
+}
