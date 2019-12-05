@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>View Dish</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <h1>@ViewBag.Profile.Name</h1>
+    <h3>@ViewBag.Profile.Chef</h3>
+    <br>
+    <h5>@ViewBag.Profile.Description</h5>
+    <strong>Calories:<p> @ViewBag.Profile.Calories</p></strong>
+    <strong>Tastiness: <p>@ViewBag.Profile.Tastiness</p></strong>
+    <a href="/delete/@ViewBag.Profile.DishId" class="btn btn-danger">Delete</a>
+    <a href="/edit/@ViewBag.Profile.DishId" class="btn btn-primary">Edit</a>
+</body>
+</html>
