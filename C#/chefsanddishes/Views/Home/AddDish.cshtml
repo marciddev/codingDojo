@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Make A Dish!</title>
+</head>
+<body>
+    @model chefsanddishes.Models.Dish
+    <form action="/create-dish" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name"class="form-control">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label>Calories</label>
+        <input asp-for="Calories"class="form-control">
+        <span asp-validation-for="Calories"></span>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea asp-for="Description"class="form-control"></textarea>
+        <span asp-validation-for = "Description"></span>
+    </div>
+    <div class="form-group">
+        <label>Tastiness</label>
+        <select asp-for="Tastiness"class="custom-select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Chef</label>
+        <select class="custom-select" name="ChefId">
+            @{
+                foreach(var x in ViewBag.Chefs) {
+                    <option value="@x.ChefId">@x.FirstName @x.LastName</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit"class ="btn btn-primary" value="Add Dish">
+    </form>
+</body>
+</html>

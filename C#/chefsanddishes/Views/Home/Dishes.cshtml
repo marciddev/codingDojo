@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Dishes</title>
+</head>
+<body>
+    <a href="/add-dish">Add a Dish!</a>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+            <th>Tastiness</th>
+            <th>Calories</th>
+        </tr>
+        @{
+            foreach(var x in ViewBag.AllDishes) {
+                <tr>
+                    <td>@x.Name</td>
+                    <td>@x.Creator.FirstName @x.Creator.LastName</td>
+                    <td>@x.Tastiness</td>
+                    <td>@x.Calories</td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>
