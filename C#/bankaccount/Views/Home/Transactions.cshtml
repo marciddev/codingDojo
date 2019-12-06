@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transactions</title>
+</head>
+<body>
+    <a href="logout"class="text text-primary">Logout</a>
+    <h1>Success</h1>
+    <h1>Hello, @ViewBag.User.FirstName</h1>
+    <h1>Your balance is @ViewBag.User.Balance</h1>
+    @model bankaccount.Models.Transaction
+    <form action="/make-transaction"method="post">
+    <div class="form-group">
+        <label>Amount</label>
+        <input type="number"name="Amount"class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary">
+    </form>
+
+    <table class="table">
+        <tr>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+        @{
+            foreach(var x in ViewBag.AllTrans) {
+                <tr>
+                    <td>@x.Amount</td>
+                    <td>@x.CreatedAt</td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>
