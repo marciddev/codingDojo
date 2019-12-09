@@ -1,0 +1,37 @@
+@model List<Wedding>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+</head>
+<body>
+    <a href="/logout">Logout!</a>
+    Successfully logged in!
+    <table class="table">
+        <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guests</th>
+            <th>Action</th>
+        </tr>
+        @{
+            foreach(var x in Model) {
+                <tr>
+                    <td>@x.FirstHuman & @x.SecondHuman</td>
+                    <td>@x.DateOf</td>
+                    <td>@x.Attendants.Count</td>
+                        @if(x.Attendants.Contains(@Model)) {
+                            <td>Yes</td>
+                        } else {
+                            <td>No</td>
+                        }
+                </tr>
+            }
+        }
+    </table>
+    <a href="/wedding/new"class="btn btn-primary">New Wedding</a>
+</body>
+</html>

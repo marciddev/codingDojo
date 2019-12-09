@@ -1,0 +1,14 @@
+@{
+    var wedding = ViewBag.wedding;
+}
+<a href="/logout">Logout</a>
+<h1>@wedding.FirstHuman and @wedding.SecondHuman Wedding</h1>
+<h3>Date: @wedding.DateOf</h3>
+<h5>Guests: </h5>
+<ul>
+    @{
+        foreach(var y in wedding.Attendants) {
+            <li>@y.User.FirstName @y.User.LastName</li>
+        }
+    }
+</ul>

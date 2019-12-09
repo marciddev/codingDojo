@@ -1,0 +1,19 @@
+<a href="/logout"class="text-primary">Logout</a>
+<h1>Plan Your Wedding</h1>
+@model Wedding
+<form action="/create-wedding" method="post">
+<label>Wedder One</label>
+<input asp-for="FirstHuman">
+<span asp-validation-for="FirstHuman">
+</span>
+<label>Wedder Two</label>
+<input asp-for="SecondHuman">
+<span asp-validation-for="SecondHuman"></span>
+<label>Date</label>
+<input asp-for="DateOf">
+<span asp-validation-for="DateOf"></span>
+<label>Wedding Address</label>
+<input asp-for="Address">
+<span asp-validation-for="Address"></span>
+<input type="Submit" class="btn btn-primary">
+</form>
