@@ -1,0 +1,26 @@
+@model Products.Models.Product
+@{
+    foreach(var x in ViewBag.AllProducts) {
+        <p><a href="/products/@x.ProductId">@x.Name</a></p>
+    }
+}
+<form action="/products/new"method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input asp-for="Description"class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input asp-for="Price"class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary"value="Create!">
+</form>
+
+
+
+
+

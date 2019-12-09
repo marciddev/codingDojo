@@ -1,0 +1,15 @@
+@{
+    <h1>Existing: </h1>
+    foreach(var x in ViewBag.allCategories) {
+        <p><a href="/categories/@x.CategoryId">@x.Name</a></p>
+    }
+}
+@model Products.Models.Category
+<form action="/categories/new"method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary"value="Create!">
+</form>
+

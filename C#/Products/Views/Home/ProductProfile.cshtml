@@ -1,0 +1,19 @@
+@{
+    <h1>@ViewBag.Profile.Name</h1>
+    <h2>Categories: </h2>
+    foreach(var x in ViewBag.Profile.ProductCategories) {
+            <p>--@x.Category.Name</p>
+    }
+}
+
+<h4>Add Category: </h4>
+<form action="/products/@ViewBag.Profile.ProductId/add-category"method="post">
+    <select name="cat">
+        @{
+            foreach(var x in ViewBag.Categories) {
+                <option value=@x.CategoryId>@x.Name</option>
+            }
+        }
+    </select>
+    <input type="submit"class="btn btn-success"value="Add category">
+</form>
