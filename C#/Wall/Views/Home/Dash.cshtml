@@ -1,0 +1,21 @@
+@model List<Message>
+    <a href="/logout">Logout</a>
+    <h1>Post a message!</h1>
+<form action="/post-message"method="post">
+<input type="text"name="message">
+<input type="submit"class = "btn btn-primary">
+</form>
+@{
+    foreach(Message x in Model) {
+        <p>@x.User.FirstName - @x.message - @x.CreatedAt</p>
+        <ul>
+            <form action="/post-comment/@x.MessageId"method="post">
+        <input type="text"name="CommentText">
+        <input type="submit"class="btn btn-primary">
+        </form>
+            @foreach(var y in x.Comments) {
+                <li>@y.User.FirstName - @y.CommentText</li>
+            }
+        </ul>
+    }
+}
