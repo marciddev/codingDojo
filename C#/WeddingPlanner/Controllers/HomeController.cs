@@ -45,10 +45,12 @@ namespace WeddingPlanner.Controllers
             if(HttpContext.Session.GetInt32("logged_user") == null) {
                 return View("Index");
             }
-            List<Wedding> weddings = dbContext.Weddings.Include(wed => wed.Attendants)
-            .ThenInclude(arrange => arrange.User).ToList();
-            ViewBag.log = dbContext.Users.FirstOrDefault(us => us.UserId == HttpContext.Session.GetInt32("logged_user"));
-            return View(weddings);
+            List<Wedding> wweddings = dbContext.Weddings.Include(wed => wed.Attendants).ThenInclude(arrange => arrange.User).ToList();
+            ViewModel vieww = new ViewModel {
+                weddings = wweddings,
+                user = dbContext.Users.FirstOrDefault(us => us.UserId == (int)HttpContext.Session.GetInt32("logged_user"))
+            };
+            return View(vieww);
         }
         [HttpGet("logout")]
         public IActionResult Logout() {
@@ -101,6 +103,29 @@ namespace WeddingPlanner.Controllers
             .FirstOrDefault(w => w.WeddingId == id);
             ViewBag.wedding = wed;
             return View();
+        }
+        [HttpGet("rsvp-user/{id}")]
+        public IActionResult rsvp(int id) {
+            User user = dbContext.Users.FirstOrDefault(userr => userr.UserId == HttpContext.Session.GetInt32("logged_user"));
+            Wedding wedding = dbContext.Weddings.FirstOrDefault(wedd => wedd.WeddingId == id);
+            Arrangement a = new Arrangement {
+                UserId = user.UserId,
+                WeddingId = wedding.WeddingId
+            };
+            dbContext.Arrangements.Add(a);
+            dbContext.SaveChanges();
+            return Redirect("/dashboard");
+        }
+        [HttpGet("unrsvp-user/{id}")]
+        public IActionResult unrsvp(int id) {
+            User user = dbContext.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("logged_user"));
+            Wedding wedding = dbContext.Weddings.FirstOrDefault(w => w.WeddingId == id);
+            Arrangement a = dbContext.Arrangements.FirstOrDefault(arr => arr.UserId == user.UserId && arr.WeddingId == wedding.WeddingId);
+            dbContext.Arrangements.Remove(a);
+            dbContext.SaveChanges();
+            return Redirect("/dashboard");
+            
+            
         }
 
         public IActionResult Privacy()

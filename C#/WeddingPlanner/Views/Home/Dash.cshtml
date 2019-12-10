@@ -1,4 +1,4 @@
-@model List<Wedding>
+@model ViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +18,15 @@
             <th>Action</th>
         </tr>
         @{
-            foreach(var x in Model) {
+            foreach(var x in Model.weddings) {
                 <tr>
                     <td>@x.FirstHuman & @x.SecondHuman</td>
                     <td>@x.DateOf</td>
                     <td>@x.Attendants.Count</td>
-                        @if(x.Attendants.Contains(@Model)) {
-                            <td>Yes</td>
+                        @if(x.Attendants.Any(m => m.User == Model.user)) {
+                            <td><a href="unrsvp-user/@x.WeddingId">UnRSVP</a></td>
                         } else {
-                            <td>No</td>
+                            <td><a href="rsvp-user/@x.WeddingId">RSVP</a></td>
                         }
                 </tr>
             }
