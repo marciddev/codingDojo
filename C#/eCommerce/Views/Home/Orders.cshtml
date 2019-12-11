@@ -1,0 +1,50 @@
+<partial name="Nav"></partial>
+@model DashModel
+<strong>Add a new order
+</strong>
+<form action="/create-order"method="post">
+<label>User: </label>
+    <select name="UserId">
+        @{
+            foreach(var x in Model.users) {
+                <option value=@x.UserId>@x.FirstName @x.LastName</option>
+            }
+        }
+    </select>
+    <label>Product: </label>
+    <select name="ProductId">
+        @{
+            foreach(var y in Model.products) {
+                <option value=@y.ProductId>@y.Name</option>
+            }
+        }
+    </select>
+    <select name="Amount">
+        @{
+            for(int i=1;i<51;i++) {
+                <option>@i</option>
+            }
+        }
+    </select>
+    <input type="submit">
+</form>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Date</th>
+    </tr>
+    @{
+        foreach(var z in Model.transactions) {
+            String date = $"{z.CreatedAt.Month}/{z.CreatedAt.Month}/{z.CreatedAt.Year}";
+            <tr>
+                <td>@z.User.FirstName @z.User.LastName</td>
+                <td>@z.Product.Name</td>
+                <td>@z.Amount</td>
+                <td>@date</td>
+            </tr>
+        }
+    }
+</table>

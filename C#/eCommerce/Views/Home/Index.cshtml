@@ -1,0 +1,21 @@
+﻿<h1>Register</h1>
+@model User
+<form action="/register-user"method="post">
+    <label>First Name</label>
+    <input asp-for="FirstName">
+    <span asp-validation-for="FirstName"></span>
+    <label>Last Name</label>
+    <input asp-for="LastName">
+    <span asp-validation-for="LastName"></span>
+    <label>Email</label>
+    <input asp-for="Email">
+    <span asp-validation-for="Email"></span>
+    <label>Password</label>
+    <input asp-for="Password">
+    <span asp-validation-for="Password"></span>
+    <label>Confirm Password</label>
+    <input asp-for="ConfirmPassword">
+    <span asp-validation-for="ConfirmPassword"></span>
+    <input type="submit"class="btn btn-primary">
+</form>
+<partial name="Login"></partial>

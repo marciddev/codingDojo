@@ -1,0 +1,61 @@
+<partial name="Nav"></partial>
+<link rel="stylesheet" href="css/dashstyle.css">
+@model DashModel
+<div id="middle">
+    <div id="products">
+        @{
+            foreach(var x in Model.products) {
+                <div class="productimgcontainer">
+                    <div class="productimg"></div>
+                    <p>@x.Name (@x.Quantity Left!)</p>
+                </div>
+            }
+        }
+        <a href="/products">show all products...</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="one" style='padding-bottom: 50px;'>
+    <strong style='margin-left: 15px;text-decoration: underline;'>Recent Orders...</strong><ul>
+        @{
+            foreach(var z in Model.transactions) {
+                    int hours = DateTime.Now.Hour - z.CreatedAt.Hour;
+                    int minutes = DateTime.Now.Minute - z.CreatedAt.Minute;
+                    int days = hours/24;
+                    if(minutes < 60 && hours < 1 && days < 1) {
+                        <li>@z.User.FirstName purchased @z.Amount @z.Product.Name (s) @minutes minutes ago.</li>
+                    } else if(hours < 25 && hours > 0) {
+                        <li>@z.User.FirstName purchased @z.Amount @z.Product.Name (s) @hours hours ago.</li>
+                    } else if(hours > 25) {
+                        <li>@z.User.FirstName purchased @z.Amount @z.Product.Name (s) @days days ago.</li>
+                    }
+                }
+            }
+            <a href="/orders">show all orders...</a>
+    </ul>
+    </div>
+    <strong style='margin-left: 30px; text-decoration: underline;'>Recent Customers...</strong>
+    <ul style='margin-left: 20px;'>
+        @{
+            foreach(var z in Model.users) {
+                int hours = DateTime.Now.Hour - z.CreatedAt.Hour;
+                    int minutes = DateTime.Now.Minute - z.CreatedAt.Minute;
+                    int days = hours/24;
+                    int weeks = days/7;
+                    if(minutes < 60 && hours < 1 && days < 1) {
+                        <li>@z.FirstName joined @minutes minutes ago.</li>
+                    } else if(hours < 25 && hours > 0) {
+                        <li>@z.FirstName joined @hours hours ago.</li>
+                    } else if(hours > 25) {
+                        <li>@z.FirstName joined @days days ago.</li>
+                    } else if(days > 7) {
+                        <li>@z.FirstName joined @weeks weeks ago.</li>
+                    }
+            }
+        }
+            <a href="/customers" style='text-decoration: underline;'>show all customers...</a>
+    </ul>
+</div>
+<script>
+</script>

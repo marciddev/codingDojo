@@ -1,0 +1,9 @@
+@model DashModel
+    @{
+    foreach(var y in Model.products) {
+    <div class="productimgcontainer">
+        <div class="productimg"></div>
+        <p>@y.Name (@y.Quantity Left!)</p>
+    </div>
+    }
+    }

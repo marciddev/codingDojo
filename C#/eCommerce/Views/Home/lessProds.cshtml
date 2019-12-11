@@ -1,0 +1,7 @@
+@model List<Product>
+@foreach(var x in Model) {
+                <div class="productimgcontainer">
+                    <div class="productimg"></div>
+                    <p>@x.Name (@x.Quantity Left!)</p>
+                </div>
+            }

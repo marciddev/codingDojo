@@ -1,0 +1,13 @@
+@{foreach(var z in Model.transactions) {
+                    int hours = DateTime.Now.Hour - z.CreatedAt.Hour;
+                    int minutes = DateTime.Now.Minute - z.CreatedAt.Minute;
+                    int days = hours/24;
+                    if(minutes < 60 && hours < 1 && days < 1) {
+                        <li>@z.User.FirstName purchased @z.Amount (s) @z.Product.Name @minutes minutes ago.</li>
+                    } else if(hours < 25 && hours > 0) {
+                        <li>@z.User.FirstName purchased @z.Amount (s) @z.Product.Name @hours hours ago.</li>
+                    } else if(hours > 25) {
+                        <li>@z.User.FirstName purchased @z.Amount (s) @z.Product.Name @days days ago.</li>
+                    }
+                }
+            }
